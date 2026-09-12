@@ -6845,9 +6845,11 @@ body,
   .dna-node-left {
     left: 4px;
   }
+
   .dna-node-right {
     right: 4px;
   }
+
   .dna-orbit-sub {
     display: none;
   }
