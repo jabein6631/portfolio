@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OTP Verification System Case Study - Full-stack authentication system with React 19, Express 5, MongoDB, Brevo Email and Twilio SMS by SK Jabein.">
+  <title>OTP Verification System &bull; Case Study | SK Jabein Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=20260912_burgundy_v10">
+  <style>
+    /* Standalone Case Study Page Overrides */
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .standalone-container {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 0 24px 80px 24px;
+    }
+  </style>
+</head>
+<body class="theme-dark">
+
+  <!-- Ambient Glow Background -->
+  <div class="ambient-glow glow-top-right"></div>
+  <div class="ambient-glow glow-bottom-left"></div>
+
+  <!-- Sticky Full-Width Top Navbar -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <a href="index.html#home" class="brand-logo" aria-label="SK Jabein Home">
+        <span class="logo-mark">SK</span>
+        <span class="logo-text">SK JABEIN</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html#home" class="nav-btn">Home</a>
+        <a href="index.html#projects" class="nav-btn active">Projects</a>
+        <a href="index.html#skills" class="nav-btn">Skills</a>
+        <a href="index.html#about" class="nav-btn">About</a>
+        <a href="index.html#contact" class="nav-btn">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a href="index.html#contact" class="btn btn-connect">
+          <span>Let's Connect</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Standalone Content Container -->
+  <div class="standalone-container">
+    <article class="case-study-wrapper" style="margin-top: 16px;">
+      <!-- 1. Top Bar: Back Button & Breadcrumbs -->
+      <div class="case-study-topbar">
+        <a href="index.html#projects" class="cs-back-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Back to Projects</span>
+        </a>
+        <nav class="cs-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html#home" class="cs-bread-link">Home</a>
+          <span class="cs-bread-sep">&gt;</span>
+          <a href="index.html#projects" class="cs-bread-link">Projects</a>
+          <span class="cs-bread-sep">&gt;</span>
+          <span class="cs-bread-curr">OTP Verification System</span>
+        </nav>
+      </div>
+
+      <!-- 2. Two-Column Hero Section -->
+      <div class="cs-hero-container">
+        <div class="otp-hero-grid">
+          <!-- Left Column: Metadata, Title, Description, Badges & Actions -->
+          <div class="cs-hero-header">
+            <div class="cs-hero-meta-row">
+              <span class="proj-index-badge" style="width:36px; height:36px; font-size:1rem; border-radius:8px;">05</span>
+              <span class="cs-category-badge">FULL-STACK AUTHENTICATION SYSTEM</span>
+            </div>
+            <h1 class="cs-project-title">OTP Verification System</h1>
+            <p class="cs-project-tagline">
+              A secure One-Time Password authentication system supporting email and phone verification, built with React, Express.js and MongoDB.
+            </p>
+            <div class="cs-tech-badges-row">
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>React</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Vite</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Node.js</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Express.js</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>MongoDB</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Mongoose</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>JWT</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>bcrypt</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Nodemailer</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Twilio</span>
+            </div>
+            <div class="cs-hero-actions-row">
+              <a href="https://otp-0ylo.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn cs-btn-demo">
+                <span>Live Demo</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+              <a href="https://github.com/jabein6631/OTP" target="_blank" rel="noopener noreferrer" class="btn cs-btn-gh">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repository</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Authentication Visual -->
+          <div class="auth-flow-visual-box">
+            <div class="auth-states-trio">
+              <!-- State 01: Secure Login -->
+              <div class="auth-mock-card">
+                <div class="mock-card-header">
+                  <span>🔐</span>
+                  <span>Sign Up / Login</span>
+                </div>
+                <div class="mock-card-body">
+                  <div style="display: flex; gap: 4px; margin-bottom: 6px;">
+                    <span style="font-size: 0.68rem; padding: 2px 8px; border-radius: 4px; background: rgba(255, 43, 104, 0.3); color: #FF2B68; font-weight: 700;">📧 Email</span>
+                    <span style="font-size: 0.68rem; padding: 2px 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); color: #8F737A;">📱 Phone</span>
+                  </div>
+                  <input type="text" class="mock-input" value="you@example.com" readonly aria-label="Email Input">
+                  <input type="password" class="mock-input" value="••••••••" readonly aria-label="Password Input">
+                  <button class="mock-btn-purple">Get OTP</button>
+                  <span class="mock-subtext" style="margin-top: 4px;">Already have an account? Login</span>
+                </div>
+              </div>
+
+              <!-- State 02: Verify OTP -->
+              <div class="auth-mock-card">
+                <div class="mock-card-header">
+                  <span>⚡</span>
+                  <span>Verify OTP</span>
+                </div>
+                <div class="mock-card-body">
+                  <span class="mock-subtext" style="text-align: left;">Enter the 6-digit code sent to your email</span>
+                  <div class="otp-boxes-strip">
+                    <div class="otp-digit-box">1</div>
+                    <div class="otp-digit-box">2</div>
+                    <div class="otp-digit-box">3</div>
+                    <div class="otp-digit-box">4</div>
+                    <div class="otp-digit-box">5</div>
+                    <div class="otp-digit-box">6</div>
+                  </div>
+                  <span class="mock-subtext">Resend OTP in <strong style="color:#FF2B68;">00:45</strong></span>
+                  <button class="mock-btn-purple">Verify</button>
+                </div>
+              </div>
+
+              <!-- State 03: Success / Dashboard -->
+              <div class="auth-mock-card">
+                <div class="mock-card-header">
+                  <span>🛡️</span>
+                  <span>Verified</span>
+                </div>
+                <div class="mock-success-wrap">
+                  <div class="mock-check-circle">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <div class="mock-success-title">OTP Verified!</div>
+                  <div class="mock-success-sub">Welcome to your dashboard.</div>
+                  <button class="mock-btn-purple" style="width: 100%;">Go to Dashboard</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Horizontal Highlights Strip (5 Cards) -->
+      <div class="otp-highlights-strip" style="margin: 28px 0;">
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Secure Authentication</div>
+            <div class="otp-hl-desc">OTP-based login and registration with JWT protection.</div>
+          </div>
+        </div>
+
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Email &amp; SMS Support</div>
+            <div class="otp-hl-desc">Delivery through Brevo / Nodemailer and Twilio.</div>
+          </div>
+        </div>
+
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Rate Limiting</div>
+            <div class="otp-hl-desc">10 requests per 15 minutes protection against abuse.</div>
+          </div>
+        </div>
+
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">OTP Expiration</div>
+            <div class="otp-hl-desc">10-minute validity with automatic MongoDB TTL cleanup.</div>
+          </div>
+        </div>
+
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Modern UI</div>
+            <div class="otp-hl-desc">Responsive React 19 interface built with Vite.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Two-Column Case Study Layout -->
+      <div class="cs-layout-grid">
+        <!-- Left / Main Column -->
+        <main class="cs-main-content">
+          <!-- About the Project -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> About the Project
+            </h2>
+            <p class="cs-prose">
+              This project is a full-stack OTP-based authentication system designed to provide passwordless authentication using one-time passwords.
+            </p>
+            <p class="cs-prose">
+              The system allows users to authenticate through either email or phone number, receive a six-digit OTP, verify the code, and access a protected dashboard after successful authentication. It protects against unauthorized access and provides a smooth, secure user experience.
+            </p>
+          </section>
+
+          <!-- How It Works (5 Connected Stages) -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> How It Works
+            </h2>
+            <div class="cs-workflow-pipeline">
+              <div class="pipeline-step-node">
+                <span class="node-step-num">01</span>
+                <div class="node-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                <div class="node-content">
+                  <div class="node-title">User Request</div>
+                  <div class="node-desc">User enters their email address or phone number (with country code) and selects the delivery mode.</div>
+                </div>
+              </div>
+
+              <div class="pipeline-step-node">
+                <span class="node-step-num">02</span>
+                <div class="node-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
+                <div class="node-content">
+                  <div class="node-title">Send OTP</div>
+                  <div class="node-desc">Backend generates a 6-digit cryptographic OTP, hashes it with bcrypt (10 salt rounds), stores it with a 10-minute expiry, and dispatches via Brevo or Twilio.</div>
+                </div>
+              </div>
+
+              <div class="pipeline-step-node">
+                <span class="node-step-num">03</span>
+                <div class="node-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+                <div class="node-content">
+                  <div class="node-title">Verify OTP</div>
+                  <div class="node-desc">User enters the six-digit verification code. The system enforces a 60-second resend cooldown and validates submitted characters.</div>
+                </div>
+              </div>
+
+              <div class="pipeline-step-node">
+                <span class="node-step-num">04</span>
+                <div class="node-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                <div class="node-content">
+                  <div class="node-title">JWT Token Issuance</div>
+                  <div class="node-desc">Upon successful bcrypt verification, the OTP record is purged, a user document is upserted, and a signed 7-day JWT token is returned to the client.</div>
+                </div>
+              </div>
+
+              <div class="pipeline-step-node">
+                <span class="node-step-num">05</span>
+                <div class="node-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
+                <div class="node-content">
+                  <div class="node-title">Protected Access</div>
+                  <div class="node-desc">JWT is persisted client-side in LocalStorage. React router unlocks the authenticated Dashboard session and queries <code>GET /api/auth/me</code>.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Key Features -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Key Features
+            </h2>
+            <div class="cs-two-col">
+              <div>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>User registration with OTP verification</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Login with passwordless OTP verification</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Email OTP delivery via Brevo / Nodemailer</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>SMS OTP delivery via Twilio REST API</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>6-digit OTP generation algorithm</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>10-minute OTP expiration window</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Resend OTP with 60-second cooldown</li>
+                </ul>
+              </div>
+              <div>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Rate limiting (10 requests per 15 minutes)</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>OTP hashing with bcrypt before database save</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>JWT-based stateless session authentication</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Protected routes with auth middleware</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Masked email / phone during verification</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Responsive and clean React 19 interface</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>MongoDB Atlas persistent storage</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Security & Authentication -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Security &amp; Authentication Mechanisms
+            </h2>
+            <div class="cs-two-col">
+              <div class="cs-mini-card">
+                <h3 class="cs-mini-title" style="color: #FF2B68;">OTP Expiration &amp; Rate Limiting</h3>
+                <p class="cs-prose" style="font-size: 0.84rem;">
+                  OTPs are stored with a strict 10-minute expiry time. In MongoDB, a TTL (Time-To-Live) index automatically purges expired records at the database level:
+                </p>
+                <code style="display:block; background:#070914; padding:8px; border-radius:6px; font-family:'Space Mono', monospace; font-size:0.75rem; color:#4ade80; margin-top:6px;">
+                  otpSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
+                </code>
+                <p class="cs-prose" style="font-size: 0.82rem; margin-top: 8px;">
+                  Endpoint <code>/api/auth/send-otp</code> is protected with <code>express-rate-limit</code> (max 10 requests per 15 mins per IP), with proxy trust enabled for Render.
+                </p>
+              </div>
+
+              <div class="cs-mini-card">
+                <h3 class="cs-mini-title" style="color: #FF2B68;">Bcrypt Hashing &amp; JWT Sessions</h3>
+                <p class="cs-prose" style="font-size: 0.84rem;">
+                  OTPs are never stored in plaintext. The backend creates a cryptographic salt (10 rounds) and stores the bcrypt hash:
+                </p>
+                <code style="display:block; background:#070914; padding:8px; border-radius:6px; font-family:'Space Mono', monospace; font-size:0.75rem; color:#FF2B68; margin-top:6px;">
+                  const hashedOTP = await bcrypt.hash(otp, salt);
+                </code>
+                <p class="cs-prose" style="font-size: 0.82rem; margin-top: 8px;">
+                  Upon verification, a JWT token signed with <code>process.env.JWT_SECRET</code> is issued with a 7-day expiration for stateless route authorization.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Email + SMS Delivery Split Section -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Email &amp; SMS Delivery Pipeline
+            </h2>
+            <p class="cs-prose">
+              The system intelligently routes OTPs depending on whether the user entered an email address or an international E.164 phone number:
+            </p>
+            <div class="delivery-split-grid">
+              <div class="delivery-card">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <span class="delivery-badge email">EMAIL SERVICE</span>
+                  <span style="font-size: 0.72rem; color: #C9AEB5;">HTTPS REST API</span>
+                </div>
+                <h3 style="font-size: 0.95rem; font-weight: 700; color: #ffffff; margin-top: 4px;">Nodemailer + Brevo HTTP API</h3>
+                <p class="cs-prose" style="font-size: 0.82rem;">
+                  Render free-tier instances restrict standard SMTP outbound traffic (ports 25, 465, 587). The implementation connects directly to Brevo's HTTP API (<code>api.brevo.com/v3/smtp/email</code>) over HTTPS port 443 with API key authentication, delivering custom HTML OTP templates reliably.
+                </p>
+              </div>
+
+              <div class="delivery-card">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <span class="delivery-badge sms">SMS SERVICE</span>
+                  <span style="font-size: 0.72rem; color: #C9AEB5;">Twilio Telephony</span>
+                </div>
+                <h3 style="font-size: 0.95rem; font-weight: 700; color: #ffffff; margin-top: 4px;">Twilio Programmable SMS</h3>
+                <p class="cs-prose" style="font-size: 0.82rem;">
+                  For mobile authentications, the backend validates international format (<code>^\+[1-9]\d{6,14}$</code>) and dispatches via Twilio's official Node.js SDK (<code>client.messages.create</code>), delivering a 6-digit code with security warnings directly to the user's mobile device.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- System Architecture -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> System Architecture
+            </h2>
+            <div class="arch-flow-diagram">
+              <div class="arch-node-box">
+                <div class="arch-node-title">React + Vite Frontend</div>
+                <div class="arch-node-sub">Single-Page App, State Router, Native Fetch API</div>
+              </div>
+              <div class="arch-arrow">&darr;</div>
+              <div class="arch-node-box">
+                <div class="arch-node-title">Node.js + Express Backend</div>
+                <div class="arch-node-sub">REST Router, Proxy Trust, CORS, Global Error Handler</div>
+              </div>
+              <div class="arch-arrow">&darr;</div>
+              <div class="arch-node-box" style="border-color: rgba(255, 43, 104, 0.4);">
+                <div class="arch-node-title">Authentication &amp; Security Layer</div>
+                <div class="arch-node-sub">OTP Generator &bull; bcrypt Hashing &bull; JWT Signing &bull; Rate Limiter</div>
+              </div>
+              <div class="arch-arrow">&darr;</div>
+              <div class="arch-dual-branches">
+                <div class="arch-node-box" style="border-color: rgba(34, 197, 94, 0.4);">
+                  <div class="arch-node-title">MongoDB Database</div>
+                  <div class="arch-node-sub">Mongoose Models &bull; TTL Auto-Purge</div>
+                </div>
+                <div class="arch-node-box" style="border-color: rgba(239, 68, 68, 0.4);">
+                  <div class="arch-node-title">External Dispatch Services</div>
+                  <div class="arch-node-sub">Brevo (Email) &bull; Twilio (SMS)</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Tech Stack -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Verified Tech Stack
+            </h2>
+            <div class="cs-two-col">
+              <div>
+                <h3 style="font-size: 0.85rem; font-weight: 700; color: #FF174F; margin-bottom: 8px;">FRONTEND</h3>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><strong>React 19:</strong> Functional components &amp; state management</li>
+                  <li><strong>Vite:</strong> Ultra-fast modern build tooling &amp; HMR</li>
+                  <li><strong>Native Fetch API:</strong> Lightweight HTTP client without Axios overhead</li>
+                  <li><strong>Custom CSS:</strong> Polished dark-mode design system</li>
+                </ul>
+              </div>
+              <div>
+                <h3 style="font-size: 0.85rem; font-weight: 700; color: #FF174F; margin-bottom: 8px;">BACKEND &amp; DATABASE</h3>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><strong>Node.js &amp; Express 5:</strong> Modular REST controller architecture</li>
+                  <li><strong>MongoDB &amp; Mongoose:</strong> Document schemas with TTL indexing</li>
+                  <li><strong>JWT &amp; bcryptjs:</strong> Stateless security &amp; cryptographic hashing</li>
+                  <li><strong>Brevo &amp; Twilio:</strong> Multi-channel OTP delivery engines</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- API Endpoints -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Backend REST API Endpoints
+            </h2>
+            <div class="cs-api-table-wrapper" style="margin-top: 14px;">
+              <table class="cs-api-table">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>Endpoint</th>
+                    <th>Purpose &amp; Payload</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/api/auth/send-otp</span></td>
+                    <td>Generate, hash, and dispatch 6-digit OTP to <code>email</code> or <code>phone</code> (Rate-limited).</td>
+                    <td>
+                      <button class="btn-api-copy" onclick="navigator.clipboard.writeText('/api/auth/send-otp')">Copy</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/api/auth/verify-otp</span></td>
+                    <td>Validate 6-digit code against bcrypt hash, upsert user document, and return JWT token.</td>
+                    <td>
+                      <button class="btn-api-copy" onclick="navigator.clipboard.writeText('/api/auth/verify-otp')">Copy</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-get">GET</span></td>
+                    <td><span class="endpoint-code">/api/auth/me</span></td>
+                    <td>Protected route returning authenticated user profile (Requires <code>Authorization: Bearer &lt;token&gt;</code>).</td>
+                    <td>
+                      <button class="btn-api-copy" onclick="navigator.clipboard.writeText('/api/auth/me')">Copy</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Data & Persistence (MongoDB Schemas) -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Data &amp; Persistence (MongoDB Mongoose Schemas)
+            </h2>
+            <div class="cs-two-col">
+              <div class="cs-mini-card">
+                <h3 class="cs-mini-title" style="color: #FF174F;">📁 User Schema (User.js)</h3>
+                <code style="display:block; background:#070914; padding:10px; border-radius:6px; font-family:'Space Mono', monospace; font-size:0.75rem; color:#C9AEB5; line-height:1.5;">
+                  {<br>
+                  &nbsp;&nbsp;email: { type: String, unique: true, sparse: true },<br>
+                  &nbsp;&nbsp;phone: { type: String, unique: true, sparse: true },<br>
+                  &nbsp;&nbsp;timestamps: true<br>
+                  }
+                </code>
+              </div>
+
+              <div class="cs-mini-card">
+                <h3 class="cs-mini-title" style="color: #FF2B68;">📁 OTP Schema (OTP.js)</h3>
+                <code style="display:block; background:#070914; padding:10px; border-radius:6px; font-family:'Space Mono', monospace; font-size:0.75rem; color:#C9AEB5; line-height:1.5;">
+                  {<br>
+                  &nbsp;&nbsp;email: { type: String, sparse: true },<br>
+                  &nbsp;&nbsp;phone: { type: String, sparse: true },<br>
+                  &nbsp;&nbsp;otp: { type: String, required: true }, // bcrypt<br>
+                  &nbsp;&nbsp;expiresAt: { type: Date, required: true },<br>
+                  &nbsp;&nbsp;timestamps: true<br>
+                  }<br>
+                  // TTL auto-purge index:<br>
+                  otpSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
+                </code>
+              </div>
+            </div>
+          </section>
+
+          <!-- Project Structure -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Project Structure
+            </h2>
+            <pre class="cs-tree-block">OTP/
+│
+├── <span class="cs-tree-file">backend/</span>
+│   ├── <span class="cs-tree-file">OTP.js</span>              <span class="cs-tree-comment"># Mongoose OTP schema with TTL auto-purge index</span>
+│   ├── <span class="cs-tree-file">User.js</span>             <span class="cs-tree-comment"># Mongoose User schema with sparse unique indexes</span>
+│   ├── <span class="cs-tree-file">authController.js</span>   <span class="cs-tree-comment"># sendOTP, verifyOTP, getMe controller logic</span>
+│   ├── <span class="cs-tree-file">authMiddleware.js</span>   <span class="cs-tree-comment"># JWT Bearer token authentication middleware</span>
+│   ├── <span class="cs-tree-file">authRoutes.js</span>       <span class="cs-tree-comment"># Express route definitions for /api/auth</span>
+│   ├── <span class="cs-tree-file">db.js</span>               <span class="cs-tree-comment"># MongoDB Atlas connection driver</span>
+│   ├── <span class="cs-tree-file">emailService.js</span>     <span class="cs-tree-comment"># Brevo HTTPS REST email dispatcher</span>
+│   ├── <span class="cs-tree-file">smsService.js</span>       <span class="cs-tree-comment"># Twilio programmable SMS integration</span>
+│   ├── <span class="cs-tree-file">server.js</span>           <span class="cs-tree-comment"># Express server, rate limiter, proxy trust &amp; static React hosting</span>
+│   └── <span class="cs-tree-file">package.json</span>        <span class="cs-tree-comment"># Express, Mongoose, JWT, bcryptjs, Twilio, Brevo</span>
+│
+├── <span class="cs-tree-file">frontend/</span>
+│   ├── <span class="cs-tree-file">src/</span>
+│   │   ├── <span class="cs-tree-file">App.jsx</span>         <span class="cs-tree-comment"># Dynamic state router (login | verify | dashboard)</span>
+│   │   ├── <span class="cs-tree-file">auth.js</span>         <span class="cs-tree-comment"># Native Fetch API client &amp; LocalStorage token handling</span>
+│   │   ├── <span class="cs-tree-file">login.jsx</span>       <span class="cs-tree-comment"># Email / Phone toggle and Send OTP view</span>
+│   │   ├── <span class="cs-tree-file">verify-otp.jsx</span>  <span class="cs-tree-comment"># 6-digit input, countdown timer &amp; resend view</span>
+│   │   ├── <span class="cs-tree-file">dashboard.jsx</span>   <span class="cs-tree-comment"># Protected authenticated dashboard</span>
+│   │   └── <span class="cs-tree-file">index.css</span>       <span class="cs-tree-comment"># Responsive custom CSS design system</span>
+│   ├── <span class="cs-tree-file">vite.config.js</span>      <span class="cs-tree-comment"># Vite bundler configuration</span>
+│   └── <span class="cs-tree-file">package.json</span>        <span class="cs-tree-comment"># React 19 &amp; Vite dependencies</span>
+│
+└── <span class="cs-tree-file">render.yaml</span>             <span class="cs-tree-comment"># Render unified deployment blueprint</span></pre>
+          </section>
+
+          <!-- What I Built -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> What I Built (Engineering Contributions)
+            </h2>
+            <div class="cs-two-col">
+              <div>
+                <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 8px;">Frontend Architecture:</h3>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Email and phone authentication toggle interface with input masking.</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>6-digit OTP entry with automated character formatting and countdown timer.</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Protected dashboard with session details, avatar initials, and secure logout.</li>
+                </ul>
+              </div>
+              <div>
+                <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 8px;">Backend &amp; Security:</h3>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Cryptographic OTP generation with bcrypt hashing before persistence.</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Rate limiting (10 requests per 15 minutes) with reverse proxy trust.</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Dual delivery pipelines: Brevo HTTPS email + Twilio programmable SMS.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Challenges & Learnings -->
+          <section class="cs-two-col">
+            <div class="cs-mini-card">
+              <h3 class="cs-mini-title" style="color: #fbbf24;">Technical Challenges</h3>
+              <ul class="cs-list" style="font-size: 0.84rem;">
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Render SMTP port blocking:</strong> Outbound SMTP is disabled on cloud free-tiers. Solved by integrating Brevo's HTTP API over port 443.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Reverse proxy rate limiting:</strong> Configured <code>app.set("trust proxy", 1)</code> so <code>express-rate-limit</code> correctly reads client IPs.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Database cleanup:</strong> Implemented MongoDB TTL indexes to automatically prune expired OTPs without cron jobs.</li>
+              </ul>
+            </div>
+
+            <div class="cs-mini-card">
+              <h3 class="cs-mini-title" style="color: #FF2B68;">Key Learnings</h3>
+              <ul class="cs-list" style="font-size: 0.84rem;">
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Building resilient passwordless authentication workflows with multi-channel fallbacks.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Applying bcrypt cryptographic salting to ephemeral tokens to prevent DB leak exploits.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Cohesive full-stack React + Express architecture deployed to production on Render.</li>
+              </ul>
+            </div>
+          </section>
+        </main>
+
+        <!-- Right Column / Sidebar Info Cards -->
+        <aside class="cs-sidebar">
+          <!-- Project Highlights Card -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Project Highlights
+            </h3>
+            <ul class="cs-list" style="font-size: 0.82rem;">
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Passwordless OTP authentication</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Email OTP via Brevo HTTPS API</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>SMS OTP via Twilio Telephony</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>10-minute auto-expiry with MongoDB TTL</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>60-second resend cooldown timer</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Rate limiting (10 req / 15 mins)</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>bcrypt-hashed token security</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Stateless JWT authentication (7 days)</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Live deployment on Render</li>
+            </ul>
+          </div>
+
+          <!-- Project Metadata Card -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Project Info
+            </h3>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Project:</span>
+              <span class="cs-info-val">OTP Verification System</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Number:</span>
+              <span class="cs-info-val">05</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Category:</span>
+              <span class="cs-info-val">Full Stack / Authentication</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Frontend:</span>
+              <span class="cs-info-val">React 19 + Vite</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Backend:</span>
+              <span class="cs-info-val">Node.js + Express 5</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Database:</span>
+              <span class="cs-info-val">MongoDB Atlas</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Auth:</span>
+              <span class="cs-info-val">OTP + JWT + bcrypt</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Delivery:</span>
+              <span class="cs-info-val">Email (Brevo) + SMS (Twilio)</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Deployment:</span>
+              <span class="cs-info-val">Render</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Repository:</span>
+              <span class="cs-info-val">jabein6631/OTP</span>
+            </div>
+          </div>
+
+          <!-- Useful Links Card -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Useful Links
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <a href="https://github.com/jabein6631/OTP" target="_blank" rel="noopener noreferrer" class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  GitHub Repository
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+
+              <a href="https://otp-0ylo.onrender.com/" target="_blank" rel="noopener noreferrer" class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                  Live Production Demo
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+
+              <a href="https://github.com/jabein6631/OTP/blob/master/frontend/README.md" target="_blank" rel="noopener noreferrer" class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                  Documentation (README)
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+
+              <a href="https://github.com/jabein6631/OTP/issues" target="_blank" rel="noopener noreferrer" class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                  Report Bug / Issues
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </div>
+
+  <!-- Global Shared Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-monogram mini">SK</span>
+        <span class="logo-title mini">SK JABEN</span>
+      </div>
+      <p class="copyright-text">
+        &copy; 2024 SK Jabein. All rights reserved.
+      </p>
+      <p class="footer-tagline">
+        Building meaningful technology with curiosity, creativity, and code.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

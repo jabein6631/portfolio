@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="LANDSCOPE Case Study — Full-stack AI Infrastructure Inspection & Maintenance Prioritization Agent with React 18, Vite, Node.js, Express, MongoDB, Leaflet GIS, and AI Agent Modules by SK Jabein.">
+  <title>LANDSCOPE &bull; Case Study | SK Jabein Portfolio</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=20260912_burgundy_v10">
+  <style>
+    /* Sleek Typography & Tight Layout Overrides */
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: #12070A;
+      color: #FFFFFF;
+      line-height: 1.5;
+    }
+
+    .standalone-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px 40px 24px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .cs-project-title,
+    .cs-card-title {
+      font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif !important;
+      letter-spacing: -0.02em;
+    }
+
+    /* Spacious 4-Card Feature Grid Override */
+    .ls-feature-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .ls-feature-card {
+      background: rgba(27, 8, 13, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      height: 100%;
+    }
+
+    .ls-feature-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 23, 79, 0.4);
+      box-shadow: 0 8px 25px rgba(255, 23, 79, 0.15);
+    }
+
+    .ls-feature-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ls-feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(255, 23, 79, 0.15);
+      border: 1px solid rgba(255, 23, 79, 0.3);
+      color: #FF2B68;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ls-feature-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+    }
+
+    .ls-feature-desc {
+      font-size: 0.8rem;
+      color: #C9AEB5;
+      line-height: 1.48;
+      width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+      .ls-feature-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .ls-feature-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Architecture Visual Diagram Styling */
+    .arch-diagram-container {
+      background: rgba(27, 8, 13, 0.95);
+      border: 1px solid rgba(255, 23, 79, 0.25);
+      border-radius: 14px;
+      padding: 24px;
+      margin-top: 14px;
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .arch-main-header {
+      text-align: center;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, rgba(255, 23, 79, 0.2) 0%, rgba(255, 43, 104, 0.15) 100%);
+      border: 1px solid rgba(255, 23, 79, 0.4);
+      border-radius: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: #ffffff;
+      max-width: 240px;
+      margin: 0 auto 16px auto;
+      box-shadow: 0 0 20px rgba(255, 23, 79, 0.2);
+    }
+
+    .arch-three-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .arch-col-box {
+      background: rgba(27, 8, 13, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+      transition: border-color 0.25s ease;
+    }
+
+    .arch-col-box:hover {
+      border-color: rgba(255, 43, 104, 0.4);
+    }
+
+    .arch-col-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #FF2B68;
+      margin-bottom: 4px;
+    }
+
+    .arch-col-tech {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .arch-col-desc {
+      font-size: 0.7rem;
+      color: #C9AEB5;
+    }
+
+    .arch-connector-line {
+      text-align: center;
+      color: #FF2B68;
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin: 4px 0 12px 0;
+    }
+
+    .arch-layer-box {
+      background: rgba(255, 23, 79, 0.1);
+      border: 1px solid rgba(255, 23, 79, 0.35);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .arch-layer-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #FF2B68;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .arch-three-agents {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .arch-agent-card {
+      background: rgba(27, 8, 13, 0.9);
+      border: 1px solid rgba(255, 43, 104, 0.25);
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #C9AEB5;
+    }
+
+    .arch-output-box {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(255, 43, 104, 0.1) 100%);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+      color: #4ade80;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 768px) {
+
+      .arch-three-cols,
+      .arch-three-agents {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="theme-dark">
+
+  <!-- Ambient Glow Background -->
+  <div class="ambient-glow glow-top-right"></div>
+  <div class="ambient-glow glow-bottom-left"></div>
+
+  <!-- Sticky Full-Width Top Navbar -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <a href="index.html#home" class="brand-logo" aria-label="SK Jabein Home">
+        <span class="logo-mark">SK</span>
+        <span class="logo-text">SK JABEIN</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html#home" class="nav-btn">Home</a>
+        <a href="index.html#projects" class="nav-btn active">Projects</a>
+        <a href="index.html#skills" class="nav-btn">Skills</a>
+        <a href="index.html#about" class="nav-btn">About</a>
+        <a href="index.html#contact" class="nav-btn">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a href="index.html#contact" class="btn btn-connect">
+          <span>Let's Connect</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="standalone-container">
+    <article class="case-study-wrapper">
+
+      <!-- 1. Top Bar: Back Button & Breadcrumbs -->
+      <div class="case-study-topbar">
+        <a href="index.html#projects" class="cs-back-btn" style="text-decoration: none;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back to Projects</span>
+        </a>
+        <nav class="cs-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html#home" class="cs-bread-link">Home</a>
+          <span class="cs-bread-sep">&gt;</span>
+          <a href="index.html#projects" class="cs-bread-link">Projects</a>
+          <span class="cs-bread-sep">&gt;</span>
+          <span class="cs-bread-curr">LANDSCOPE</span>
+        </nav>
+      </div>
+
+      <!-- 2. Two-Column Hero Section -->
+      <div class="cs-hero-container">
+        <div class="portal-hero-grid">
+
+          <!-- Left Column: Metadata, Title, Subtitle, Description, Tech Badges & CTA Actions -->
+          <div class="cs-hero-header">
+            <div class="cs-hero-meta-row">
+              <span class="proj-index-badge"
+                style="width:36px; height:36px; font-size:1rem; border-radius:8px;">04</span>
+              <span class="cs-category-badge">AI / COMPUTER VISION / GIS</span>
+            </div>
+
+            <h1 class="cs-project-title">LANDSCOPE</h1>
+            <p class="cs-subtitle" style="font-size: 1.15rem; font-weight: 700; color: #FF2B68; margin-bottom: 12px;">
+              AI Infrastructure Inspection &amp; Maintenance Prioritization Agent
+            </p>
+
+            <p class="cs-project-tagline">
+              LANDSCOPE is an AI-powered infrastructure intelligence platform that combines computer vision, citizen and
+              inspector reports, geospatial context, historical maintenance records, and resource constraints to
+              identify infrastructure defects, calculate risk, prioritize maintenance, and generate actionable
+              engineering recommendations.
+            </p>
+
+            <!-- Technology Badges -->
+            <div class="cs-tech-badges-row">
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>React 18</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Vite</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Tailwind CSS</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Node.js</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Express</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>MongoDB</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Computer Vision</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>AI Agents</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>GIS</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Leaflet</span>
+            </div>
+
+            <!-- Hero Action Buttons -->
+            <div class="cs-hero-actions-row">
+              <a href="https://ai-infrastructure-inspection.vercel.app/" target="_blank" rel="noopener noreferrer"
+                class="btn cs-btn-demo">
+                <span>Live Demo</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+              <a href="https://github.com/Abidbaig-06/ai-infrastructure-inspection" target="_blank"
+                rel="noopener noreferrer" class="btn cs-btn-gh">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+                <span>GitHub Repository</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Hero Visual Showcase (Actual Project Image) -->
+          <div class="portal-mockup-frame">
+            <div class="cs-visual-topbar"
+              style="background: #060917; padding: 8px 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <div class="cs-window-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              <div class="cs-window-title" style="font-size: 0.76rem;">LANDSCOPE &bull; AI Infrastructure Command Center
+              </div>
+              <div class="cs-live-indicator">
+                <span class="live-pulse-dot"></span>
+                <span>PROTOTYPE</span>
+              </div>
+            </div>
+
+            <div style="position: relative; overflow: hidden; background: #060814;">
+              <img src="assets/projects/landscope/landscope_featured.jpg"
+                alt="LANDSCOPE Infrastructure Intelligence Dashboard"
+                style="width: 100%; height: auto; display: block; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. ACTUAL PROJECT SCREENSHOTS GALLERY -->
+      <section class="cs-card" style="margin-top: 24px;">
+        <h2 class="cs-card-title">
+          <span class="icon-cube">&#9670;</span> Actual Project Screenshots
+        </h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px;">
+          <div
+            style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 43, 104, 0.25); background: #060814;">
+            <img src="assets/projects/landscope/landscope_inspection.jpg" alt="AI Inspection & Risk Analysis"
+              style="width: 100%; height: 230px; object-fit: cover; display: block;">
+            <div
+              style="padding: 8px 12px; background: rgba(27, 8, 13, 0.9); font-size: 0.78rem; font-weight: 600; color: #FFFFFF;">
+              AI Inspection &amp; Risk Analysis
+            </div>
+          </div>
+          <div
+            style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 23, 79, 0.25); background: #060814;">
+            <img src="assets/projects/landscope/landscope_gis.jpg" alt="GIS Infrastructure Mapping & Analytics"
+              style="width: 100%; height: 230px; object-fit: cover; display: block;">
+            <div
+              style="padding: 8px 12px; background: rgba(27, 8, 13, 0.9); font-size: 0.78rem; font-weight: 600; color: #FFFFFF;">
+              GIS Infrastructure Mapping &amp; Analytics
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. SPACIOUS 4-CARD FEATURE STRIP (UNCONSTRAINED FULL-WIDTH DESCRIPTION LAYOUT) -->
+      <div class="ls-feature-strip">
+        <div class="ls-feature-card">
+          <div class="ls-feature-header">
+            <div class="ls-feature-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+            <div class="ls-feature-title">AI Defect Detection</div>
+          </div>
+          <div class="ls-feature-desc">
+            Detects infrastructure defects from visual inspection evidence using computer vision models.
+          </div>
+        </div>
+
+        <div class="ls-feature-card">
+          <div class="ls-feature-header">
+            <div class="ls-feature-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path>
+              </svg>
+            </div>
+            <div class="ls-feature-title">Risk Intelligence</div>
+          </div>
+          <div class="ls-feature-desc">
+            Combines defect severity, asset context, location, and historical information into composite risk scores.
+          </div>
+        </div>
+
+        <div class="ls-feature-card">
+          <div class="ls-feature-header">
+            <div class="ls-feature-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <div class="ls-feature-title">Maintenance Prioritization</div>
+          </div>
+          <div class="ls-feature-desc">
+            Ranks infrastructure maintenance needs using risk, budget, and available crew constraints.
+          </div>
+        </div>
+
+        <div class="ls-feature-card">
+          <div class="ls-feature-header">
+            <div class="ls-feature-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+              </svg>
+            </div>
+            <div class="ls-feature-title">GIS Infrastructure View</div>
+          </div>
+          <div class="ls-feature-desc">
+            Provides geographic context for infrastructure assets, complaints, inspections, and risk locations.
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. TWO-COLUMN CASE STUDY LAYOUT -->
+      <div class="cs-layout-grid">
+        <!-- Left / Main Column -->
+        <main class="cs-main-content">
+
+          <!-- About The Project & Problem Solved -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> About the Project
+            </h2>
+            <p class="cs-prose">
+              <strong>LANDSCOPE</strong> was designed as an infrastructure intelligence system for helping municipal
+              teams move from reactive maintenance toward evidence-based prioritization.
+            </p>
+            <p class="cs-prose">
+              The platform brings together visual inspection evidence, citizen complaints, asset information, geographic
+              context, historical maintenance records, AI-generated risk assessment, budget constraints, and crew
+              availability.
+            </p>
+            <p class="cs-prose">
+              The result is a workflow that helps identify high-risk infrastructure and determine which maintenance
+              actions should be handled first.
+            </p>
+          </section>
+
+          <!-- AI Inspection & Prioritization Workflow Pipeline -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> AI Inspection &amp; Prioritization Workflow
+            </h2>
+            <div
+              style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-mono); font-size: 0.72rem; text-align: center; margin-top: 14px;">
+              <div
+                style="padding: 6px 10px; background: rgba(27, 8, 13, 0.9); border: 1px solid rgba(255, 43, 104, 0.3); border-radius: 6px; color: #FF2B68;">
+                01 Map / Asset</div>
+              <span style="color: #FF2B68;">→</span>
+              <div
+                style="padding: 6px 10px; background: rgba(27, 8, 13, 0.9); border: 1px solid rgba(255, 23, 79, 0.3); border-radius: 6px; color: #FF2B68;">
+                02 Inspection Evidence</div>
+              <span style="color: #FF2B68;">→</span>
+              <div
+                style="padding: 6px 10px; background: rgba(27, 8, 13, 0.9); border: 1px solid rgba(255, 43, 104, 0.3); border-radius: 6px; color: #FF2B68;">
+                03 Visual AI Analysis</div>
+              <span style="color: #FF2B68;">→</span>
+              <div
+                style="padding: 6px 10px; background: rgba(27, 8, 13, 0.9); border: 1px solid rgba(255, 23, 79, 0.3); border-radius: 6px; color: #FF2B68;">
+                04 Multimodal Context</div>
+              <span style="color: #FF2B68;">→</span>
+              <div
+                style="padding: 6px 10px; background: rgba(27, 8, 13, 0.9); border: 1px solid rgba(255, 43, 104, 0.3); border-radius: 6px; color: #FF2B68;">
+                05 Historical Retrieval</div>
+              <span style="color: #FF2B68;">→</span>
+              <div
+                style="padding: 6px 10px; background: rgba(27, 8, 13, 0.9); border: 1px solid rgba(255, 23, 79, 0.3); border-radius: 6px; color: #FF2B68;">
+                06 Risk Score</div>
+              <span style="color: #FF2B68;">→</span>
+              <div
+                style="padding: 6px 10px; background: rgba(27, 8, 13, 0.9); border: 1px solid rgba(255, 43, 104, 0.3); border-radius: 6px; color: #FF2B68;">
+                07 Priority Ranking</div>
+              <span style="color: #FF2B68;">→</span>
+              <div
+                style="padding: 6px 10px; background: rgba(27, 8, 13, 0.9); border: 1px solid rgba(255, 23, 79, 0.3); border-radius: 6px; color: #FF2B68;">
+                08 Recommendation</div>
+              <span style="color: #FF2B68;">→</span>
+              <div
+                style="padding: 6px 10px; background: rgba(27, 8, 13, 0.9); border: 1px solid rgba(255, 43, 104, 0.3); border-radius: 6px; color: #FF2B68;">
+                09 Human Approval</div>
+              <span style="color: #4ade80;">→</span>
+              <div
+                style="padding: 6px 10px; background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.4); border-radius: 6px; color: #4ade80;">
+                10 Updated Status</div>
+            </div>
+          </section>
+
+          <!-- Key Features Grid -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Key Features
+            </h2>
+            <div class="cs-two-col">
+              <div>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>Computer Vision Defect Inspection</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>Multimodal Evidence Analysis</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>Composite Risk Scoring (0–100)</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>Historical Asset Retrieval</li>
+                </ul>
+              </div>
+              <div>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>GIS Infrastructure Mapping</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>Citizen Complaint Intelligence</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>Resource-Aware Prioritization</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>Engineering Recommendations</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- PROPER & FULLY-ACCURATE SYSTEM ARCHITECTURE DIAGRAM -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> System Architecture
+            </h2>
+
+            <div class="arch-diagram-container">
+              <!-- Top Root -->
+              <div class="arch-main-header">
+                LANDSCOPE AGENT
+              </div>
+              <div class="arch-connector-line">│</div>
+
+              <!-- 3 Top Layer Columns -->
+              <div class="arch-three-cols">
+                <div class="arch-col-box">
+                  <div class="arch-col-title">FRONTEND</div>
+                  <div class="arch-col-tech">React 18 + Vite</div>
+                  <div class="arch-col-desc">Leaflet GIS Interface &amp; Workbench</div>
+                </div>
+                <div class="arch-col-box">
+                  <div class="arch-col-title">BACKEND</div>
+                  <div class="arch-col-tech">Node.js + Express</div>
+                  <div class="arch-col-desc">REST Router &amp; Controller API</div>
+                </div>
+                <div class="arch-col-box">
+                  <div class="arch-col-title">DATA LAYER</div>
+                  <div class="arch-col-tech">MongoDB + Mongoose</div>
+                  <div class="arch-col-desc">Asset Data &amp; Local JSON Fallback</div>
+                </div>
+              </div>
+
+              <div class="arch-connector-line">▼</div>
+
+              <!-- AI Agent Layer -->
+              <div class="arch-layer-box">
+                <div class="arch-layer-title">Autonomous AI Agent Layer (`ai-agents/`)</div>
+                <div class="arch-three-agents">
+                  <div class="arch-agent-card">
+                    📷 Vision Detector<br>
+                    <span style="font-weight:400; color:#C9AEB5; font-size:0.68rem;">Bounding Box &amp; Cracking</span>
+                  </div>
+                  <div class="arch-agent-card">
+                    ⚡ Multimodal Analyzer<br>
+                    <span style="font-weight:400; color:#C9AEB5; font-size:0.68rem;">Text, GIS &amp; 0-100 Risk</span>
+                  </div>
+                  <div class="arch-agent-card">
+                    📜 Historical Retrieval<br>
+                    <span style="font-weight:400; color:#C9AEB5; font-size:0.68rem;">Repairs &amp; Warranty
+                      Context</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="arch-connector-line">▼</div>
+
+              <!-- Risk Prioritization Planner -->
+              <div
+                style="background: rgba(27, 8, 13, 0.9); border: 1px solid rgba(255, 23, 79, 0.4); border-radius: 10px; padding: 12px; text-align: center; margin-bottom: 16px;">
+                <div
+                  style="font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 800; color: #FF2B68;">
+                  🎯 Risk &amp; Resource Prioritization Planner
+                </div>
+                <div style="font-size: 0.72rem; color: #C9AEB5; margin-top: 2px;">
+                  Optimizes Knapsack Allocation ($10K–$60K Budget &amp; Crew Constraints)
+                </div>
+              </div>
+
+              <div class="arch-connector-line">▼</div>
+
+              <!-- Output Layer -->
+              <div class="arch-output-box">
+                🛠️ Prioritized Actionable Maintenance Plan &amp; Engineering Dossier (BOQ &amp; IRC:82)
+              </div>
+            </div>
+          </section>
+
+          <!-- Backend REST API Architecture Table -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Backend REST API Architecture
+            </h2>
+            <div class="cs-api-table-wrapper" style="margin-top: 14px;">
+              <table class="cs-api-table">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>Endpoint</th>
+                    <th>Module &amp; Purpose</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/ai-agent/inspect</span></td>
+                    <td>AI Inspection Agent &bull; Multimodal defect detection &amp; risk scoring.</td>
+                    <td><button class="btn-api-copy"
+                        onclick="navigator.clipboard.writeText('/ai-agent/inspect')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-get">GET</span></td>
+                    <td><span class="endpoint-code">/ai-agent/prioritize</span></td>
+                    <td>Risk Prioritization Planner &bull; Budget/crew knapsack optimizer.</td>
+                    <td><button class="btn-api-copy"
+                        onclick="navigator.clipboard.writeText('/ai-agent/prioritize')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-get">GET</span></td>
+                    <td><span class="endpoint-code">/ai-agent/history/:assetId</span></td>
+                    <td>Historical Asset Retrieval &bull; Repair logs &amp; warranty tracking.</td>
+                    <td><button class="btn-api-copy"
+                        onclick="navigator.clipboard.writeText('/ai-agent/history/:assetId')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-get">GET</span></td>
+                    <td><span class="endpoint-code">/ai-agent/assets</span></td>
+                    <td>Infrastructure Assets &bull; Returns tracked asset metadata.</td>
+                    <td><button class="btn-api-copy"
+                        onclick="navigator.clipboard.writeText('/ai-agent/assets')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-get">GET</span></td>
+                    <td><span class="endpoint-code">/complaints</span></td>
+                    <td>Citizen Complaints &bull; Ward &amp; severity filtering.</td>
+                    <td><button class="btn-api-copy"
+                        onclick="navigator.clipboard.writeText('/complaints')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/complaints</span></td>
+                    <td>Citizen Complaint Registration &bull; AI triage scoring.</td>
+                    <td><button class="btn-api-copy"
+                        onclick="navigator.clipboard.writeText('/complaints')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/complaints/:id/resolve</span></td>
+                    <td>Complaint Resolution &bull; After-repair evidence.</td>
+                    <td><button class="btn-api-copy"
+                        onclick="navigator.clipboard.writeText('/complaints/:id/resolve')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-get">GET</span></td>
+                    <td><span class="endpoint-code">/work-orders</span></td>
+                    <td>Work Orders &bull; Municipal maintenance orders.</td>
+                    <td><button class="btn-api-copy"
+                        onclick="navigator.clipboard.writeText('/work-orders')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/work-orders</span></td>
+                    <td>Work Orders &bull; Create maintenance task.</td>
+                    <td><button class="btn-api-copy"
+                        onclick="navigator.clipboard.writeText('/work-orders')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-get">GET</span></td>
+                    <td><span class="endpoint-code">/analytics</span></td>
+                    <td>Infrastructure Analytics &bull; KPIs &amp; model telemetry.</td>
+                    <td><button class="btn-api-copy" onclick="navigator.clipboard.writeText('/analytics')">Copy</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Project Structure -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Project Structure
+            </h2>
+            <pre class="cs-tree-block">ai-infrastructure-inspection/
+│
+├── <span class="cs-tree-file">ai-agents/</span>                   <span class="cs-tree-comment"># Autonomous AI Engine</span>
+│   ├── visionDefectDetector.js
+│   ├── multimodalAnalyzer.js
+│   ├── riskPrioritizationPlanner.js
+│   ├── historicalAssetRetrieval.js
+│   └── index.js
+│
+├── <span class="cs-tree-file">backend/</span>                     <span class="cs-tree-comment"># Express REST API Server</span>
+│   ├── controllers/
+│   ├── routes/
+│   ├── uploads/
+│   ├── server.js
+│   └── package.json
+│
+├── <span class="cs-tree-file">database/</span>                    <span class="cs-tree-comment"># MongoDB + JSON Fallback Engine</span>
+│   ├── models/
+│   ├── seed/
+│   ├── connection.js
+│   └── data_storage.json
+│
+├── <span class="cs-tree-file">docs/</span>                        <span class="cs-tree-comment"># Engineering Specifications &amp; Formulas</span>
+│   ├── PROBLEM_STATEMENT_9.md
+│   ├── ARCHITECTURE.md
+│   ├── API_SPECIFICATION.md
+│   └── ENGINEERING_FORMULAS.md
+│
+├── <span class="cs-tree-file">frontend/</span>                    <span class="cs-tree-comment"># React 18 + Vite Single-Page Application</span>
+│   ├── src/
+│   ├── public/
+│   ├── index.html
+│   ├── vite.config.js
+│   └── tailwind.config.js
+│
+└── README.md</pre>
+          </section>
+
+          <!-- AI Agent Modules (4 Cards) -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> AI Agent Modules
+            </h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div
+                style="padding: 14px; background: rgba(27, 8, 13, 0.8); border: 1px solid rgba(255, 43, 104, 0.25); border-radius: 10px;">
+                <div
+                  style="font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 800; color: #FF2B68;">
+                  01 &bull; Vision Defect Detector</div>
+                <p style="font-size: 0.78rem; color: #C9AEB5; margin-top: 4px; line-height: 1.45;">Detects
+                  infrastructure defects from inspection imagery and extracts visual evidence such as defect type,
+                  severity, and measurements.</p>
+              </div>
+              <div
+                style="padding: 14px; background: rgba(27, 8, 13, 0.8); border: 1px solid rgba(255, 23, 79, 0.25); border-radius: 10px;">
+                <div
+                  style="font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 800; color: #FF2B68;">
+                  02 &bull; Multimodal Analyzer</div>
+                <p style="font-size: 0.78rem; color: #C9AEB5; margin-top: 4px; line-height: 1.45;">Combines visual
+                  evidence with descriptions, reports, geographic context, and infrastructure information to produce a
+                  complete assessment.</p>
+              </div>
+              <div
+                style="padding: 14px; background: rgba(27, 8, 13, 0.8); border: 1px solid rgba(255, 43, 104, 0.25); border-radius: 10px;">
+                <div
+                  style="font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 800; color: #FF2B68;">
+                  03 &bull; Historical Asset Retrieval</div>
+                <p style="font-size: 0.78rem; color: #C9AEB5; margin-top: 4px; line-height: 1.45;">Retrieves previous
+                  maintenance records, interventions, and asset history to identify recurring problems and provide
+                  historical context.</p>
+              </div>
+              <div
+                style="padding: 14px; background: rgba(27, 8, 13, 0.8); border: 1px solid rgba(255, 23, 79, 0.25); border-radius: 10px;">
+                <div
+                  style="font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 800; color: #FF2B68;">
+                  04 &bull; Risk Prioritization Planner</div>
+                <p style="font-size: 0.78rem; color: #C9AEB5; margin-top: 4px; line-height: 1.45;">Uses infrastructure
+                  risk and available resources such as budget ($10K–$60K) and crew capacity to generate a prioritized
+                  maintenance queue.</p>
+              </div>
+            </div>
+          </section>
+
+        </main>
+
+        <!-- Right Column / Sidebar Info Cards -->
+        <aside class="cs-sidebar">
+
+          <!-- 01 Project Info Card -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Project Info
+            </h3>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Project:</span>
+              <span class="cs-info-val">LANDSCOPE</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Number:</span>
+              <span class="cs-info-val">04</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Category:</span>
+              <span class="cs-info-val" style="color: #FF2B68;">AI / CV / GIS</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Type:</span>
+              <span class="cs-info-val" style="color: #FF2B68;">Infrastructure Intelligence</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Deployment:</span>
+              <span class="cs-info-val" style="color: #4ade80;">Guntur Municipal Corp</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Coordinates:</span>
+              <span class="cs-info-val">16.3067° N, 80.4365° E</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Status:</span>
+              <span class="cs-info-val">Prototype</span>
+            </div>
+          </div>
+
+          <!-- 02 Technology Stack Breakdown Card -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Technology Stack
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.8rem;">
+              <div>
+                <strong style="color: #FF2B68; display: block;">Frontend:</strong>
+                <span style="color: #C9AEB5;">React 18, Vite, Tailwind CSS, Leaflet GIS</span>
+              </div>
+              <div>
+                <strong style="color: #FF2B68; display: block;">Backend:</strong>
+                <span style="color: #C9AEB5;">Node.js, Express REST API</span>
+              </div>
+              <div>
+                <strong style="color: #FF2B68; display: block;">Database:</strong>
+                <span style="color: #C9AEB5;">MongoDB, Mongoose, JSON Fallback</span>
+              </div>
+              <div>
+                <strong style="color: #FF2B68; display: block;">AI Agents:</strong>
+                <span style="color: #C9AEB5;">Vision Detector, Multimodal Analyzer, Risk Planner, History
+                  Retrieval</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 03 Prototype Telemetry Metrics Card -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Prototype Telemetry
+            </h3>
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-family: 'Space Grotesk', sans-serif; text-align: center;">
+              <div
+                style="background: rgba(255, 23, 79, 0.12); border: 1px solid rgba(255, 23, 79, 0.3); border-radius: 8px; padding: 10px;">
+                <div style="font-size: 1.15rem; font-weight: 800; color: #FF2B68;">94.8%</div>
+                <div style="font-size: 0.68rem; color: #C9AEB5;">Statutory SLA Rate</div>
+              </div>
+              <div
+                style="background: rgba(255, 43, 104, 0.12); border: 1px solid rgba(255, 43, 104, 0.3); border-radius: 8px; padding: 10px;">
+                <div style="font-size: 1.15rem; font-weight: 800; color: #FF2B68;">PCI 0-100</div>
+                <div style="font-size: 0.68rem; color: #C9AEB5;">Condition Index</div>
+              </div>
+              <div
+                style="background: rgba(34, 197, 94, 0.12); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 8px; padding: 10px;">
+                <div style="font-size: 1.15rem; font-weight: 800; color: #4ade80;">$10K-$60K</div>
+                <div style="font-size: 0.68rem; color: #C9AEB5;">Budget Slider</div>
+              </div>
+              <div
+                style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; padding: 10px;">
+                <div style="font-size: 1.15rem; font-weight: 800; color: #f59e0b;">IRC:82</div>
+                <div style="font-size: 0.68rem; color: #C9AEB5;">Code Standard</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04 What I Built • Engineering Contributions -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> What I Built &bull; Engineering Contributions
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div
+                style="padding: 10px; background: rgba(27, 8, 13, 0.8); border: 1px solid rgba(255, 43, 104, 0.25); border-radius: 8px;">
+                <div style="font-weight: 800; font-size: 0.82rem; color: #FF2B68;">01 &bull; Frontend &amp; GIS</div>
+                <p style="font-size: 0.76rem; color: #C9AEB5; margin-top: 2px; line-height: 1.4;">Built the
+                  infrastructure monitoring interface using React/Vite with GIS visualization and AI
+                  inspection/analytics views.</p>
+              </div>
+              <div
+                style="padding: 10px; background: rgba(27, 8, 13, 0.8); border: 1px solid rgba(255, 23, 79, 0.25); border-radius: 8px;">
+                <div style="font-weight: 800; font-size: 0.82rem; color: #FF2B68;">02 &bull; AI &amp; Computer Vision
+                </div>
+                <p style="font-size: 0.76rem; color: #C9AEB5; margin-top: 2px; line-height: 1.4;">Implemented the
+                  AI-agent workflow for visual defect detection, multimodal analysis, and infrastructure risk
+                  assessment.</p>
+              </div>
+              <div
+                style="padding: 10px; background: rgba(27, 8, 13, 0.8); border: 1px solid rgba(255, 43, 104, 0.25); border-radius: 8px;">
+                <div style="font-weight: 800; font-size: 0.82rem; color: #FF2B68;">03 &bull; Backend &amp; Data</div>
+                <p style="font-size: 0.76rem; color: #C9AEB5; margin-top: 2px; line-height: 1.4;">Built the Express REST
+                  API supporting complaints, assets, inspections, work orders, analytics, and AI-agent workflows.</p>
+              </div>
+              <div
+                style="padding: 10px; background: rgba(27, 8, 13, 0.8); border: 1px solid rgba(255, 23, 79, 0.25); border-radius: 8px;">
+                <div style="font-weight: 800; font-size: 0.82rem; color: #FF2B68;">04 &bull; Prioritization Engine</div>
+                <p style="font-size: 0.76rem; color: #C9AEB5; margin-top: 2px; line-height: 1.4;">Implemented
+                  resource-aware maintenance prioritization using risk, budget, and available crew capacity.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 05 Technical Challenges -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Technical Challenges
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div
+                style="padding: 10px; background: rgba(27, 8, 13, 0.8); border-left: 3px solid #FF2B68; border-radius: 0 8px 8px 0;">
+                <div style="font-weight: 700; font-size: 0.8rem; color: #fff;">01 &bull; Multimodal Analysis</div>
+                <p style="font-size: 0.75rem; color: #C9AEB5; margin-top: 2px;"><strong>Challenge:</strong> Decisions
+                  require more than image analysis.<br><strong>Solution:</strong> Combine visual evidence with reports,
+                  GIS context &amp; repair history.</p>
+              </div>
+              <div
+                style="padding: 10px; background: rgba(27, 8, 13, 0.8); border-left: 3px solid #FF2B68; border-radius: 0 8px 8px 0;">
+                <div style="font-weight: 700; font-size: 0.8rem; color: #fff;">02 &bull; Resource-Aware Prioritization
+                </div>
+                <p style="font-size: 0.75rem; color: #C9AEB5; margin-top: 2px;"><strong>Challenge:</strong> High-risk
+                  assets need prioritization with real constraints.<br><strong>Solution:</strong> Include budget &amp;
+                  crew availability in the maintenance workflow.</p>
+              </div>
+              <div
+                style="padding: 10px; background: rgba(27, 8, 13, 0.8); border-left: 3px solid #4ade80; border-radius: 0 8px 8px 0;">
+                <div style="font-weight: 700; font-size: 0.8rem; color: #fff;">03 &bull; Real-World GIS Context</div>
+                <p style="font-size: 0.75rem; color: #C9AEB5; margin-top: 2px;"><strong>Challenge:</strong> Problems are
+                  strongly connected to location.<br><strong>Solution:</strong> Use Leaflet GIS complaint mapping for
+                  physical geographic context.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 06 Key Learnings -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Key Learnings
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div
+                style="padding: 10px; background: rgba(27, 8, 13, 0.8); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px;">
+                <div style="font-weight: 800; font-size: 0.8rem; color: #FF2B68;">AI Agent Architecture</div>
+                <p style="font-size: 0.75rem; color: #C9AEB5; margin-top: 2px;">Learned how multiple specialized AI
+                  components work together as an end-to-end decision pipeline.</p>
+              </div>
+              <div
+                style="padding: 10px; background: rgba(27, 8, 13, 0.8); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px;">
+                <div style="font-weight: 800; font-size: 0.8rem; color: #FF2B68;">Computer Vision + GIS</div>
+                <p style="font-size: 0.75rem; color: #C9AEB5; margin-top: 2px;">Learned how visual infrastructure
+                  analysis becomes more useful with location context.</p>
+              </div>
+              <div
+                style="padding: 10px; background: rgba(27, 8, 13, 0.8); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px;">
+                <div style="font-weight: 800; font-size: 0.8rem; color: #FF2B68;">Full-Stack AI Systems</div>
+                <p style="font-size: 0.75rem; color: #C9AEB5; margin-top: 2px;">Worked across frontend, backend, APIs,
+                  data storage, AI processing, and visualization.</p>
+              </div>
+              <div
+                style="padding: 10px; background: rgba(27, 8, 13, 0.8); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px;">
+                <div style="font-weight: 800; font-size: 0.8rem; color: #FF2B68;">Risk-Based Decision Making</div>
+                <p style="font-size: 0.75rem; color: #C9AEB5; margin-top: 2px;">Learned how AI outputs transform into
+                  practical maintenance priorities instead of simple predictions.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 07 Project Highlights Card -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Project Highlights
+            </h3>
+            <ul class="cs-list" style="font-size: 0.82rem;">
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>01 AI-powered visual inspection</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>02 Multimodal infrastructure analysis</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>03 Historical asset intelligence</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>04 Resource-aware prioritization</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>05 GIS-based municipal monitoring</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>06 Evidence-linked BOQ dossier</li>
+            </ul>
+          </div>
+
+          <!-- 08 Useful Links Card -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Useful Links
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <a href="https://github.com/Abidbaig-06/ai-infrastructure-inspection" target="_blank"
+                rel="noopener noreferrer" class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                  GitHub Repository
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+
+              <a href="https://ai-infrastructure-inspection.vercel.app/" target="_blank" rel="noopener noreferrer"
+                class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                  Live Project Demo
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+
+              <a href="https://github.com/Abidbaig-06/ai-infrastructure-inspection/blob/main/README.md" target="_blank"
+                rel="noopener noreferrer" class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                  </svg>
+                  README Documentation
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+
+              <a href="https://github.com/Abidbaig-06/ai-infrastructure-inspection/blob/main/docs/API_SPECIFICATION.md"
+                target="_blank" rel="noopener noreferrer" class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  API Specification Docs
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+
+    </article>
+  </div>
+
+  <!-- Global Shared Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-monogram mini">SK</span>
+        <span class="logo-title mini">SK JABEIN</span>
+      </div>
+      <p class="copyright-text">
+        &copy; 2024 SK Jabein. All rights reserved.
+      </p>
+      <p class="footer-tagline">
+        Building meaningful technology with curiosity, creativity, and code.
+      </p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

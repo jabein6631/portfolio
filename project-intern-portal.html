@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Intern Portal Case Study - Full-stack internship management platform with Next.js 16, React 19, Flask, MongoDB and Groq AI by SK Jabein.">
+  <title>Intern Portal &bull; Case Study | SK Jabein Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=20260912_burgundy_v10">
+  <style>
+    /* Standalone Case Study Page Overrides */
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .standalone-container {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 0 24px 80px 24px;
+    }
+  </style>
+</head>
+<body class="theme-dark">
+
+  <!-- Ambient Glow Background -->
+  <div class="ambient-glow glow-top-right"></div>
+  <div class="ambient-glow glow-bottom-left"></div>
+
+  <!-- Sticky Full-Width Top Navbar -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <a href="index.html#home" class="brand-logo" aria-label="SK Jabein Home">
+        <span class="logo-mark">SK</span>
+        <span class="logo-text">SK JABEIN</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html#home" class="nav-btn">Home</a>
+        <a href="index.html#projects" class="nav-btn active">Projects</a>
+        <a href="index.html#skills" class="nav-btn">Skills</a>
+        <a href="index.html#about" class="nav-btn">About</a>
+        <a href="index.html#contact" class="nav-btn">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a href="index.html#contact" class="btn btn-connect">
+          <span>Let's Connect</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="standalone-container">
+    <article class="case-study-wrapper">
+      <!-- 1. Top Bar: Back Button & Breadcrumbs -->
+      <div class="case-study-topbar">
+        <a href="index.html#projects" class="cs-back-btn" style="text-decoration: none;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Back to Projects</span>
+        </a>
+        <nav class="cs-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html#home" class="cs-bread-link">Home</a>
+          <span class="cs-bread-sep">&gt;</span>
+          <a href="index.html#projects" class="cs-bread-link">Projects</a>
+          <span class="cs-bread-sep">&gt;</span>
+          <span class="cs-bread-curr">Intern Portal</span>
+        </nav>
+      </div>
+
+      <!-- 2. Two-Column Hero Section -->
+      <div class="cs-hero-container">
+        <div class="portal-hero-grid">
+          <!-- Left Column: Metadata, Title, Description, Badges & Actions -->
+          <div class="cs-hero-header">
+            <div class="cs-hero-meta-row">
+              <span class="proj-index-badge" style="width:36px; height:36px; font-size:1rem; border-radius:8px;">03</span>
+              <span class="cs-category-badge">FULL-STACK INTERNSHIP MANAGEMENT PLATFORM</span>
+            </div>
+            <h1 class="cs-project-title">Intern Portal</h1>
+            <p class="cs-project-tagline">
+              A full-stack internship management platform that streamlines task assignments, attendance tracking, journals, analytics, calendars and mentor communication in one centralized system.
+            </p>
+            <div class="cs-tech-badges-row">
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Next.js</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>React</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Tailwind CSS</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Flask</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>MongoDB</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>JWT</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>PyMongo</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Recharts</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Zod</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Lucide React</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Groq AI</span>
+            </div>
+            <div class="cs-hero-actions-row">
+              <a href="https://intern-portal-ktmh.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn cs-btn-demo">
+                <span>Live Demo</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+              <a href="https://github.com/jabein6631/intern-portal" target="_blank" rel="noopener noreferrer" class="btn cs-btn-gh">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repository</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Live Intern Portal Dashboard UI Frame -->
+          <div class="portal-mockup-frame">
+            <div class="cs-visual-topbar" style="background: #060917; padding: 8px 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <div class="cs-window-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              <div class="cs-window-title" style="font-size: 0.76rem;">intern-portal &bull; Live Management Workspace</div>
+              <div class="cs-live-indicator">
+                <span class="live-pulse-dot"></span>
+                <span>LIVE PROJECT</span>
+              </div>
+            </div>
+
+            <div class="portal-app-layout">
+              <!-- Internal Navigation Sidebar -->
+              <div class="portal-internal-sidebar">
+                <div>
+                  <div class="portal-sidebar-brand">
+                    <span>🏢</span>
+                    <span>InternPortal</span>
+                  </div>
+                  <div class="portal-sidebar-menu">
+                    <div class="portal-nav-item active"><span>📊</span><span>Dashboard</span></div>
+                    <div class="portal-nav-item"><span>📋</span><span>Tasks</span></div>
+                    <div class="portal-nav-item"><span>📤</span><span>Submissions</span></div>
+                    <div class="portal-nav-item"><span>⏱️</span><span>Attendance</span></div>
+                    <div class="portal-nav-item"><span>📝</span><span>Journals</span></div>
+                    <div class="portal-nav-item"><span>📅</span><span>Calendar</span></div>
+                    <div class="portal-nav-item"><span>💬</span><span>Mentor / Chat</span></div>
+                    <div class="portal-nav-item"><span>📈</span><span>Analytics</span></div>
+                    <div class="portal-nav-item"><span>⚙️</span><span>Settings</span></div>
+                  </div>
+                </div>
+                <div class="portal-nav-item" style="color: #ef4444;"><span>🚪</span><span>Logout</span></div>
+              </div>
+
+              <!-- Internal Main Dashboard Screen -->
+              <div class="portal-internal-main">
+                <div class="portal-main-topbar">
+                  <input type="text" class="portal-search-mock" placeholder="Search anything..." readonly aria-label="Search">
+                  <div class="portal-user-meta">
+                    <div class="portal-avatar-sm">SM</div>
+                    <div>
+                      <div style="font-weight: 700; font-size: 0.72rem;">Shaik Mahey</div>
+                      <div style="font-size: 0.62rem; color: #FF174F;">Intern</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 4 Live KPI Cards -->
+                <div class="portal-kpi-strip">
+                  <div class="portal-kpi-box">
+                    <div class="portal-kpi-label">Total Interns</div>
+                    <div class="portal-kpi-val">120</div>
+                    <div class="portal-kpi-sub">+12 this month</div>
+                  </div>
+                  <div class="portal-kpi-box">
+                    <div class="portal-kpi-label">Active Tasks</div>
+                    <div class="portal-kpi-val">32</div>
+                    <div class="portal-kpi-sub">+8 ongoing</div>
+                  </div>
+                  <div class="portal-kpi-box">
+                    <div class="portal-kpi-label">Submissions</div>
+                    <div class="portal-kpi-val">18</div>
+                    <div class="portal-kpi-sub">+4 today</div>
+                  </div>
+                  <div class="portal-kpi-box">
+                    <div class="portal-kpi-label">Attendance</div>
+                    <div class="portal-kpi-val" style="color: #4ade80;">92%</div>
+                    <div class="portal-kpi-sub">+5% this week</div>
+                  </div>
+                </div>
+
+                <!-- Middle Charts & Activities -->
+                <div class="portal-analytics-split">
+                  <div class="portal-card-inner">
+                    <div class="portal-inner-title">
+                      <span>Attendance Overview</span>
+                      <span style="color: #FF174F; font-size: 0.64rem;">This Week &dtrif;</span>
+                    </div>
+                    <!-- Recharts Vector Spline Graph Representation -->
+                    <svg viewBox="0 0 260 90" style="width: 100%; height: 75px; overflow: visible;">
+                      <line x1="0" y1="15" x2="260" y2="15" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3" />
+                      <line x1="0" y1="45" x2="260" y2="45" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3" />
+                      <line x1="0" y1="75" x2="260" y2="75" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3" />
+                      <path d="M 10 50 Q 50 25, 90 40 T 170 20 T 250 15" fill="none" stroke="#FF174F" stroke-width="2.5" />
+                      <circle cx="10" cy="50" r="3" fill="#FF2B68" />
+                      <circle cx="50" cy="32" r="3" fill="#FF2B68" />
+                      <circle cx="90" cy="40" r="3" fill="#FF2B68" />
+                      <circle cx="130" cy="28" r="3" fill="#FF2B68" />
+                      <circle cx="170" cy="20" r="3" fill="#FF2B68" />
+                      <circle cx="210" cy="30" r="3" fill="#FF2B68" />
+                      <circle cx="250" cy="15" r="3" fill="#FF2B68" />
+                    </svg>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.6rem; color: #8F737A; margin-top: 2px;">
+                      <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                    </div>
+                  </div>
+
+                  <div class="portal-card-inner">
+                    <div class="portal-inner-title">Recent Activities</div>
+                    <div class="activity-item-row">
+                      <div class="activity-icon-badge">D</div>
+                      <div style="flex:1;">
+                        <div style="color:#ffffff; font-weight:600;">Design System UI</div>
+                        <div style="color:#8F737A; font-size:0.6rem;">Submitted by Ali Khan</div>
+                      </div>
+                      <span style="color:#8F737A; font-size:0.6rem;">2m ago</span>
+                    </div>
+                    <div class="activity-item-row">
+                      <div class="activity-icon-badge" style="background:rgba(255,43,104,0.2); color:#FF2B68;">A</div>
+                      <div style="flex:1;">
+                        <div style="color:#ffffff; font-weight:600;">API Integration Task</div>
+                        <div style="color:#8F737A; font-size:0.6rem;">Submitted by Sara Ali</div>
+                      </div>
+                      <span style="color:#8F737A; font-size:0.6rem;">15m ago</span>
+                    </div>
+                    <div class="activity-item-row">
+                      <div class="activity-icon-badge" style="background:rgba(74,222,128,0.2); color:#4ade80;">S</div>
+                      <div style="flex:1;">
+                        <div style="color:#ffffff; font-weight:600;">Daily Standup Notes</div>
+                        <div style="color:#8F737A; font-size:0.6rem;">Submitted by Hamza Khan</div>
+                      </div>
+                      <span style="color:#8F737A; font-size:0.6rem;">1h ago</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Horizontal Highlights Strip (6 Cards) -->
+      <div class="portal-highlights-strip" style="margin: 28px 0;">
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Centralized Platform</div>
+            <div class="otp-hl-desc">All internship workflows united in one place.</div>
+          </div>
+        </div>
+
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Task Management</div>
+            <div class="otp-hl-desc">Create, assign, update and track tasks easily.</div>
+          </div>
+        </div>
+
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Attendance Tracking</div>
+            <div class="otp-hl-desc">Check-in, check-out and telemetry analytics.</div>
+          </div>
+        </div>
+
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Journals &amp; Reports</div>
+            <div class="otp-hl-desc">Daily progress logs with mentor review comments.</div>
+          </div>
+        </div>
+
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Mentor Communication</div>
+            <div class="otp-hl-desc">Real-time messaging, evaluations and feedback.</div>
+          </div>
+        </div>
+
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Analytics Dashboard</div>
+            <div class="otp-hl-desc">Progress visualization with Recharts metrics.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Two-Column Case Study Layout -->
+      <div class="cs-layout-grid">
+        <!-- Left / Main Column -->
+        <main class="cs-main-content">
+          <!-- About The Project & Problem Solved -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> About the Project
+            </h2>
+            <p class="cs-prose">
+              <strong>Intern Portal</strong> is a full-stack web application designed to manage internship programs efficiently. It provides tools for task management, attendance tracking, daily journals, analytics, calendar management, and mentor communication.
+            </p>
+            <p class="cs-prose">
+              The platform helps organizations and mentors monitor intern progress while giving interns a clean and organized workspace to stay on track with their tasks and submissions.
+            </p>
+          </section>
+
+          <!-- Key Features -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Key Features
+            </h2>
+            <div class="cs-two-col">
+              <div>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Secure authentication with JWT &amp; bcrypt</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Task creation, assignment &amp; status tracking</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Submission management and file attachments</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Attendance check-in, checkout &amp; telemetry</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Daily journals &amp; mentor review comments</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Groq AI assistant for automated task evaluations</li>
+                </ul>
+              </div>
+              <div>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Calendar &amp; upcoming event management</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Mentor chat &amp; peer-to-peer messaging</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Analytics &amp; performance dashboard with Recharts</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Role-based access control (Intern, Mentor, Admin)</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>User profile configuration &amp; account settings</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Responsive Next.js &amp; Tailwind CSS interface</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- System Architecture -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> System Architecture
+            </h2>
+            <div class="arch-flow-diagram">
+              <div class="arch-node-box">
+                <div class="arch-node-title">Frontend Client (Next.js 16 + React 19)</div>
+                <div class="arch-node-sub">Tailwind CSS &bull; Recharts &bull; React Hook Form &bull; Zod &bull; Lucide React</div>
+              </div>
+              <div class="arch-arrow">&darr;</div>
+              <div class="arch-node-box">
+                <div class="arch-node-title">Backend API Layer (Flask 3 + Python)</div>
+                <div class="arch-node-sub">REST Router &bull; Blueprint Architecture &bull; CORS &bull; Gunicorn</div>
+              </div>
+              <div class="arch-arrow">&darr;</div>
+              <div class="arch-node-box" style="border-color: rgba(255, 43, 104, 0.4);">
+                <div class="arch-node-title">Authentication &amp; Security Layer</div>
+                <div class="arch-node-sub">PyJWT Middleware &bull; bcrypt Cryptographic Salting &bull; Role-Based Guard</div>
+              </div>
+              <div class="arch-arrow">&darr;</div>
+              <div class="arch-dual-branches">
+                <div class="arch-node-box" style="border-color: rgba(34, 197, 94, 0.4);">
+                  <div class="arch-node-title">MongoDB Database</div>
+                  <div class="arch-node-sub">PyMongo &bull; shared_db, intern_db, mentor_db</div>
+                </div>
+                <div class="arch-node-box" style="border-color: rgba(239, 68, 68, 0.4);">
+                  <div class="arch-node-title">Groq AI / LLM Engine</div>
+                  <div class="arch-node-sub">Automated Task Evaluations &amp; Progress Summaries</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3 Interactive Modules: Task Management, API Telemetry, Mentor Chat -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Core Workflow Modules
+            </h2>
+            <div class="portal-tri-section">
+              <!-- Card 1: Task Management Table -->
+              <div class="portal-card-inner">
+                <div class="portal-inner-title">
+                  <span>Task Management</span>
+                  <span style="font-size: 0.65rem; color: #FF174F;">4 Active</span>
+                </div>
+                <table class="portal-task-table">
+                  <thead>
+                    <tr>
+                      <th>Task Title</th>
+                      <th>Assigned To</th>
+                      <th>Due</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight:600; color:#fff;">UX/UI Design</td>
+                      <td>Ali Khan</td>
+                      <td>25 May</td>
+                      <td><span class="task-status-tag task-status-progress">In Progress</span></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:600; color:#fff;">API Integration</td>
+                      <td>Sara Ali</td>
+                      <td>28 May</td>
+                      <td><span class="task-status-tag task-status-review">Review</span></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:600; color:#fff;">Database Design</td>
+                      <td>Zain Ahmed</td>
+                      <td>30 May</td>
+                      <td><span class="task-status-tag task-status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:600; color:#fff;">Testing &amp; QA</td>
+                      <td>Hamza Khan</td>
+                      <td>02 Jun</td>
+                      <td><span class="task-status-tag task-status-pending">Pending</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Card 2: API Architecture & Telemetry Bar Chart -->
+              <div class="portal-card-inner">
+                <div class="portal-inner-title">
+                  <span>API Architecture &amp; Activity</span>
+                  <span style="font-size: 0.65rem; color: #FF2B68;">Weekly &dtrif;</span>
+                </div>
+                <!-- Recharts Bar Chart Representation -->
+                <div style="height: 140px; display: flex; align-items: flex-end; justify-content: space-between; padding: 10px 6px 0 6px;">
+                  <div style="text-align:center;"><div style="width:18px; height:80px; background:#FF174F; border-radius:3px 3px 0 0;"></div><span style="font-size:0.6rem; color:#8F737A;">Mon</span></div>
+                  <div style="text-align:center;"><div style="width:18px; height:95px; background:#FF174F; border-radius:3px 3px 0 0;"></div><span style="font-size:0.6rem; color:#8F737A;">Tue</span></div>
+                  <div style="text-align:center;"><div style="width:18px; height:60px; background:#FF174F; border-radius:3px 3px 0 0;"></div><span style="font-size:0.6rem; color:#8F737A;">Wed</span></div>
+                  <div style="text-align:center;"><div style="width:18px; height:85px; background:#FF174F; border-radius:3px 3px 0 0;"></div><span style="font-size:0.6rem; color:#8F737A;">Thu</span></div>
+                  <div style="text-align:center;"><div style="width:18px; height:110px; background:#FF174F; border-radius:3px 3px 0 0; box-shadow:0 0 10px rgba(255,23,79,0.5);"></div><span style="font-size:0.6rem; color:#8F737A;">Fri</span></div>
+                  <div style="text-align:center;"><div style="width:18px; height:25px; background:#4c1d95; border-radius:3px 3px 0 0;"></div><span style="font-size:0.6rem; color:#8F737A;">Sat</span></div>
+                  <div style="text-align:center;"><div style="width:18px; height:15px; background:#4c1d95; border-radius:3px 3px 0 0;"></div><span style="font-size:0.6rem; color:#8F737A;">Sun</span></div>
+                </div>
+              </div>
+
+              <!-- Card 3: Mentor Chat Widget -->
+              <div class="portal-card-inner">
+                <div class="portal-inner-title">
+                  <span>Mentor Chat</span>
+                  <span style="font-size: 0.65rem; color: #4ade80;">&bull; Online</span>
+                </div>
+                <div class="portal-chat-box">
+                  <div style="display:flex; flex-direction:column; gap:6px;">
+                    <div class="chat-bubble mentor">
+                      <strong>Mentor:</strong> Hello Intern! How is your task progress today?
+                    </div>
+                    <div class="chat-bubble intern">
+                      I have finished the API integration and pushed the PR.
+                    </div>
+                  </div>
+                  <div class="chat-input-row">
+                    <input type="text" class="chat-input-mock" placeholder="Type a message..." readonly aria-label="Chat input">
+                    <button class="chat-send-btn">&rarr;</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Tech Stack -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Verified Tech Stack
+            </h2>
+            <div class="cs-two-col">
+              <div>
+                <h3 style="font-size: 0.85rem; font-weight: 700; color: #FF174F; margin-bottom: 8px;">FRONTEND</h3>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><strong>Next.js 16 &amp; React 19:</strong> Server-side rendering &amp; dynamic routing</li>
+                  <li><strong>Tailwind CSS 4:</strong> Modern utility-first styling system</li>
+                  <li><strong>TypeScript 5.7:</strong> Strict type-safety across all components</li>
+                  <li><strong>Recharts:</strong> Interactive SVG charting for telemetry &amp; attendance</li>
+                  <li><strong>Zod &amp; React Hook Form:</strong> Comprehensive schema validation</li>
+                </ul>
+              </div>
+              <div>
+                <h3 style="font-size: 0.85rem; font-weight: 700; color: #FF174F; margin-bottom: 8px;">BACKEND &amp; AI</h3>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><strong>Python 3 &amp; Flask 3:</strong> Modular micro-framework with Blueprint routing</li>
+                  <li><strong>MongoDB &amp; PyMongo:</strong> High-performance multi-database document store</li>
+                  <li><strong>PyJWT &amp; bcrypt:</strong> Stateless JSON Web Token authentication &amp; hashing</li>
+                  <li><strong>Groq AI Engine:</strong> Ultra-fast LLM inference for evaluations &amp; summaries</li>
+                  <li><strong>Gunicorn:</strong> Production WSGI HTTP server</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- API Endpoints Architecture -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Backend REST API Architecture
+            </h2>
+            <div class="cs-api-table-wrapper" style="margin-top: 14px;">
+              <table class="cs-api-table">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>Endpoint</th>
+                    <th>Module &amp; Purpose</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/auth/login</span></td>
+                    <td>Authenticates user credentials and returns signed JWT token.</td>
+                    <td><button class="btn-api-copy" onclick="navigator.clipboard.writeText('/auth/login')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/auth/register</span></td>
+                    <td>Registers new intern or mentor profile with bcrypt password hashing.</td>
+                    <td><button class="btn-api-copy" onclick="navigator.clipboard.writeText('/auth/register')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-get">GET</span></td>
+                    <td><span class="endpoint-code">/intern/tasks/?userId=</span></td>
+                    <td>Retrieves all assigned tasks with status, deadlines, and priorities.</td>
+                    <td><button class="btn-api-copy" onclick="navigator.clipboard.writeText('/intern/tasks/?userId=')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/intern/tasks/</span></td>
+                    <td>Creates and assigns an internship task to intern profiles.</td>
+                    <td><button class="btn-api-copy" onclick="navigator.clipboard.writeText('/intern/tasks/')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-patch">PATCH</span></td>
+                    <td><span class="endpoint-code">/intern/tasks/:id/status</span></td>
+                    <td>Updates task lifecycle status (In Progress, Review, Completed).</td>
+                    <td><button class="btn-api-copy" onclick="navigator.clipboard.writeText('/intern/tasks/:id/status')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/intern/attendance/checkin</span></td>
+                    <td>Records attendance timestamp and starts daily session timer.</td>
+                    <td><button class="btn-api-copy" onclick="navigator.clipboard.writeText('/intern/attendance/checkin')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-get">GET</span></td>
+                    <td><span class="endpoint-code">/intern/journals/?userId=</span></td>
+                    <td>Retrieves daily progress journal records and mentor feedback.</td>
+                    <td><button class="btn-api-copy" onclick="navigator.clipboard.writeText('/intern/journals/?userId=')">Copy</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/ai/evaluate</span></td>
+                    <td>Groq AI evaluation pipeline assessing submission completeness.</td>
+                    <td><button class="btn-api-copy" onclick="navigator.clipboard.writeText('/ai/evaluate')">Copy</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Project Structure -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Project Structure
+            </h2>
+            <pre class="cs-tree-block">intern-portal/
+│
+├── <span class="cs-tree-file">app/</span>                        <span class="cs-tree-comment"># Next.js 16 App Router frontend pages</span>
+│   ├── <span class="cs-tree-file">login/</span> &amp; <span class="cs-tree-file">signup/</span>        <span class="cs-tree-comment"># Authentication entrypoints</span>
+│   ├── <span class="cs-tree-file">dashboard/</span>              <span class="cs-tree-comment"># Overview KPIs, Recharts telemetry &amp; activities</span>
+│   ├── <span class="cs-tree-file">tasks/</span>                  <span class="cs-tree-comment"># Task assignment, submission &amp; status tracking</span>
+│   ├── <span class="cs-tree-file">attendance/</span>             <span class="cs-tree-comment"># Check-in, check-out &amp; attendance history</span>
+│   ├── <span class="cs-tree-file">journals/</span>               <span class="cs-tree-comment"># Daily progress journals with mentor feedback</span>
+│   ├── <span class="cs-tree-file">calendar/</span>               <span class="cs-tree-comment"># Events, meeting schedules &amp; deadlines</span>
+│   ├── <span class="cs-tree-file">messages/</span> &amp; <span class="cs-tree-file">mentor/</span>      <span class="cs-tree-comment"># Real-time communication and mentor pairing</span>
+│   └── <span class="cs-tree-file">settings/</span>               <span class="cs-tree-comment"># Profile configuration and security</span>
+│
+├── <span class="cs-tree-file">backend/</span>                    <span class="cs-tree-comment"># Flask + Python modular REST backend</span>
+│   ├── <span class="cs-tree-file">app.py</span>                  <span class="cs-tree-comment"># Main Flask app, Blueprint registration &amp; CORS</span>
+│   ├── <span class="cs-tree-file">routes/</span>                 <span class="cs-tree-comment"># auth, tasks, journals, attendance, mentor, messages</span>
+│   ├── <span class="cs-tree-file">models/</span>                 <span class="cs-tree-comment"># MongoDB database collection drivers</span>
+│   ├── <span class="cs-tree-file">middleware/</span>             <span class="cs-tree-comment"># JWT Bearer token authentication guard</span>
+│   ├── <span class="cs-tree-file">config/</span>                 <span class="cs-tree-comment"># Database and environment configurations</span>
+│   └── <span class="cs-tree-file">requirements.txt</span>        <span class="cs-tree-comment"># Flask, PyMongo, PyJWT, bcrypt, Gunicorn, Groq</span>
+│
+├── <span class="cs-tree-file">lib/</span>                        <span class="cs-tree-comment"># Frontend API utility client</span>
+│   └── <span class="cs-tree-file">api.js</span>                  <span class="cs-tree-comment"># Unified fetch helper handling JWT bearer tokens</span>
+└── <span class="cs-tree-file">package.json</span>                <span class="cs-tree-comment"># Next.js, React 19, Tailwind CSS 4, Recharts</span></pre>
+          </section>
+
+          <!-- What I Built -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> What I Built (Engineering Contributions)
+            </h2>
+            <div class="cs-two-col">
+              <div>
+                <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 8px;">Frontend &amp; Architecture:</h3>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Designed comprehensive dashboard UI with dark glassmorphic styling.</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Implemented interactive Recharts graphs for weekly attendance tracking.</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Built task lifecycle state machine (In Progress, Review, Completed).</li>
+                </ul>
+              </div>
+              <div>
+                <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 8px;">Backend &amp; Database:</h3>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Engineered modular Flask Blueprint architecture separating intern &amp; mentor scopes.</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Configured role-based JWT verification middleware for route protection.</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Integrated Groq AI for automated submission quality evaluation.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Challenges & Learnings -->
+          <section class="cs-two-col">
+            <div class="cs-mini-card">
+              <h3 class="cs-mini-title" style="color: #fbbf24;">Technical Challenges</h3>
+              <ul class="cs-list" style="font-size: 0.84rem;">
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Cross-origin authentication:</strong> Coordinating JWT cookies and headers across Next.js on Vercel and Flask backend.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>State complexity:</strong> Managing synchronized updates across tasks, daily attendance timers, and messaging without layout shifts.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Multi-tenant schema design:</strong> Structuring MongoDB collections across Intern, Mentor, and Institution scopes.</li>
+              </ul>
+            </div>
+
+            <div class="cs-mini-card">
+              <h3 class="cs-mini-title" style="color: #FF2B68;">Key Learnings</h3>
+              <ul class="cs-list" style="font-size: 0.84rem;">
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Architecting enterprise SaaS workflows bridging Next.js frontend with Python microservices.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Developing scalable MongoDB schemas using PyMongo for document tracking.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Applying Groq AI acceleration to generate immediate feedback on student submissions.</li>
+              </ul>
+            </div>
+          </section>
+        </main>
+
+        <!-- Right Column / Sidebar Info Cards -->
+        <aside class="cs-sidebar">
+          <!-- Project Highlights Card -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Project Highlights
+            </h3>
+            <ul class="cs-list" style="font-size: 0.82rem;">
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Full-stack internship operations platform</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Next.js 16 + React 19 frontend</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Python Flask REST API with Blueprints</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Role-based JWT route protection</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Task tracking with life-cycle statuses</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Attendance check-in &amp; session timers</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Daily journals &amp; mentor comments</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Interactive Recharts telemetry</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Groq AI submission evaluations</li>
+            </ul>
+          </div>
+
+          <!-- Project Metadata Card -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Project Info
+            </h3>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Project:</span>
+              <span class="cs-info-val">Intern Portal</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Number:</span>
+              <span class="cs-info-val">03</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Category:</span>
+              <span class="cs-info-val">Full Stack Web Application</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Type:</span>
+              <span class="cs-info-val">Internship Management SaaS</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Frontend:</span>
+              <span class="cs-info-val">Next.js 16 + React 19</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Backend:</span>
+              <span class="cs-info-val">Flask 3 + Python</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Database:</span>
+              <span class="cs-info-val">MongoDB (PyMongo)</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Auth:</span>
+              <span class="cs-info-val">JWT + bcrypt</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">AI Engine:</span>
+              <span class="cs-info-val">Groq AI</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Repository:</span>
+              <span class="cs-info-val">jabein6631/intern-portal</span>
+            </div>
+          </div>
+
+          <!-- Useful Links Card -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Useful Links
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <a href="https://github.com/jabein6631/intern-portal" target="_blank" rel="noopener noreferrer" class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  GitHub Repository
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+
+              <a href="https://intern-portal-ktmh.vercel.app/" target="_blank" rel="noopener noreferrer" class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                  Live Production Demo
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+
+              <a href="https://github.com/jabein6631/intern-portal#readme" target="_blank" rel="noopener noreferrer" class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                  Documentation (README)
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+
+              <a href="https://github.com/jabein6631/intern-portal/issues" target="_blank" rel="noopener noreferrer" class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                  Report Bug / Issues
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </div>
+
+  <!-- Global Shared Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-monogram mini">SK</span>
+        <span class="logo-title mini">SK JABEN</span>
+      </div>
+      <p class="copyright-text">
+        &copy; 2024 SK Jabein. All rights reserved.
+      </p>
+      <p class="footer-tagline">
+        Building meaningful technology with curiosity, creativity, and code.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

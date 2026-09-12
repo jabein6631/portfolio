@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI-Agent / Grounded SAM 2 Case Study - Open-World Computer Vision & Video Tracking by SK Jabein.">
+  <title>AI-Agent / Grounded SAM 2 &bull; Case Study | SK Jabein Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=20260912_burgundy_v10">
+  <style>
+    /* Standalone Case Study Page Overrides */
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .standalone-container {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 0 24px 80px 24px;
+    }
+  </style>
+</head>
+<body class="theme-dark">
+
+  <!-- Ambient Glow Background -->
+  <div class="ambient-glow glow-top-right"></div>
+  <div class="ambient-glow glow-bottom-left"></div>
+
+  <!-- Sticky Full-Width Top Navbar -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <a href="index.html#home" class="brand-logo" aria-label="SK Jabein Home">
+        <span class="logo-mark">SK</span>
+        <span class="logo-text">SK JABEIN</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html#home" class="nav-btn">Home</a>
+        <a href="index.html#projects" class="nav-btn active">Projects</a>
+        <a href="index.html#skills" class="nav-btn">Skills</a>
+        <a href="index.html#about" class="nav-btn">About</a>
+        <a href="index.html#contact" class="nav-btn">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a href="index.html#contact" class="btn btn-connect">
+          <span>Let's Connect</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="standalone-container">
+    <article class="case-study-wrapper">
+      <!-- 1. Top Bar: Back Button & Breadcrumbs -->
+      <div class="case-study-topbar">
+        <a href="index.html#projects" class="cs-back-btn" style="text-decoration: none;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Back to Projects</span>
+        </a>
+        <nav class="cs-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html#home" class="cs-bread-link">Home</a>
+          <span class="cs-bread-sep">&gt;</span>
+          <a href="index.html#projects" class="cs-bread-link">Projects</a>
+          <span class="cs-bread-sep">&gt;</span>
+          <span class="cs-bread-curr">AI-Agent (Grounded SAM 2)</span>
+        </nav>
+      </div>
+
+      <!-- 2. Two-Column Hero Section -->
+      <div class="cs-hero-container">
+        <div class="sam2-hero-grid">
+          <!-- Left Column: Metadata, Title, Description, Badges & Actions -->
+          <div class="cs-hero-header">
+            <div class="cs-hero-meta-row">
+              <span class="proj-index-badge" style="width:36px; height:36px; font-size:1rem; border-radius:8px;">02</span>
+              <span class="cs-category-badge" style="color: #FF2B68; border-color: rgba(255,43,104,0.3); background: rgba(255,43,104,0.1);">OPEN-WORLD COMPUTER VISION &amp; VIDEO TRACKING</span>
+            </div>
+            <h1 class="cs-project-title">AI-Agent / Grounded SAM 2</h1>
+            <p class="cs-project-tagline">
+              A powerful AI agent that combines Grounding DINO and Segment Anything Model 2 (SAM 2) for text-prompted object detection, segmentation and video tracking in the real world.
+            </p>
+            <div class="cs-tech-badges-row">
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Python</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Gradio</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Grounding DINO</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>SAM 2</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>OpenCV</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>PyTorch</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Supervision</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>SAHI</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>NumPy</span>
+              <span class="cs-tech-pill"><span class="tech-icon-dot"></span>JSON</span>
+            </div>
+            <div class="cs-hero-actions-row">
+              <a href="https://github.com/jabein6631/AI-agent" target="_blank" rel="noopener noreferrer" class="btn cs-btn-gh" style="background: linear-gradient(135deg, #FF174F 0%, #FF2B68 100%);">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repository</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+              <button class="btn cs-btn-demo" style="background: rgba(255, 43, 104, 0.15); border: 1px solid rgba(255, 43, 104, 0.4); color: #FF2B68;" onclick="alert('Local Execution: Run python grounded_sam2_tracking_demo.py in your PyTorch environment.')">
+                <span>Live Demo (Local)</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Computer Vision 3-Stage Synchronized Visual -->
+          <div class="sam2-cv-visual-box">
+            <div class="sam2-prompt-wrapper">
+              <div style="display:flex; justify-content:space-between; width:100%; align-items:center; margin-bottom:8px;">
+                <div style="font-size:0.65rem; color:#8F737A; font-weight:700;">COMPUTER VISION INFERENCE PIPELINE</div>
+                <div class="cs-live-indicator">
+                  <span class="live-pulse-dot"></span>
+                  <span>LIVE PROJECT</span>
+                </div>
+              </div>
+              <div class="sam2-prompt-badge">
+                <span class="sam2-prompt-tag">TEXT PROMPT</span>
+                <span class="sam2-prompt-text">person, car, dog</span>
+              </div>
+              <div class="sam2-prompt-arrow">&darr;</div>
+            </div>
+
+            <div class="sam2-trio-panels">
+              <!-- Panel 1: Detection -->
+              <div class="sam2-stage-panel">
+                <div class="sam2-stage-header stage-header-detect">DETECTION (GROUNDING DINO)</div>
+                <div class="sam2-stage-media">
+                  <img src="assets/projects/grounded-sam2/hero_street.jpg" alt="Grounding DINO Object Detection">
+                  <div class="cv-overlay-box bbox-person">
+                    <span class="cv-tag-label">person 0.94</span>
+                  </div>
+                  <div class="cv-overlay-box bbox-car">
+                    <span class="cv-tag-label">car 0.91</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 2: Segmentation -->
+              <div class="sam2-stage-panel">
+                <div class="sam2-stage-header stage-header-seg">SEGMENTATION (SAM 2)</div>
+                <div class="sam2-stage-media">
+                  <img src="assets/projects/grounded-sam2/hero_street.jpg" alt="SAM 2 Segmentation Masks">
+                  <div class="seg-mask-person"></div>
+                  <div class="seg-mask-car"></div>
+                </div>
+              </div>
+
+              <!-- Panel 3: Video Tracking -->
+              <div class="sam2-stage-panel">
+                <div class="sam2-stage-header stage-header-track">TRACKING (SAM 2)</div>
+                <div class="sam2-stage-media">
+                  <img src="assets/projects/grounded-sam2/hero_street.jpg" alt="Persistent Video Tracking">
+                  <div class="track-id-badge track-id-1">ID: 1</div>
+                  <div class="track-id-badge track-id-2">ID: 2</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Horizontal Highlights Strip (5 Cards) -->
+      <div class="sam2-highlights-strip" style="margin: 28px 0;">
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon" style="color: #FF2B68;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Text Guided Detection</div>
+            <div class="otp-hl-desc">Detect any object using natural language prompts.</div>
+          </div>
+        </div>
+
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon" style="color: #4ade80;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Accurate Segmentation</div>
+            <div class="otp-hl-desc">Pixel-perfect masks using SAM 2 for detected objects.</div>
+          </div>
+        </div>
+
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon" style="color: #FF2B68;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Video Tracking</div>
+            <div class="otp-hl-desc">Persistent tracking IDs across frames and complex scenes.</div>
+          </div>
+        </div>
+
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon" style="color: #facc15;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Open World</div>
+            <div class="otp-hl-desc">Detect &amp; segment unseen objects in real-world images.</div>
+          </div>
+        </div>
+
+        <div class="otp-highlight-card">
+          <div class="otp-hl-icon" style="color: #FF174F;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          </div>
+          <div class="otp-hl-content">
+            <div class="otp-hl-title">Export Results</div>
+            <div class="otp-hl-desc">Export masks, boxes, tracking data &amp; results as JSON.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. About the Project & How It Works -->
+      <div class="cs-two-col" style="margin-bottom: 20px;">
+        <!-- Left: About -->
+        <section class="cs-card">
+          <h2 class="cs-card-title">
+            <span class="icon-cube">&#9670;</span> About the Project
+          </h2>
+          <p class="cs-prose">
+            <strong>AI-Agent / Grounded SAM 2</strong> is an advanced computer vision system that enables open-world object detection, segmentation and tracking using state-of-the-art foundation models.
+          </p>
+          <p class="cs-prose">
+            It accepts arbitrary natural language text prompts (e.g. <em>"person, car, dog"</em>) and performs zero-shot object detection using Grounding DINO, generates pixel-accurate masks with SAM 2, and tracks objects across video frames with persistent tracking IDs.
+          </p>
+          <p class="cs-prose">
+            The system supports both high-resolution static images and custom videos, high-resolution inference using SAHI (Slicing Aided Hyper Inference), and exports all results as structured JSON.
+          </p>
+        </section>
+
+        <!-- Right: How It Works (5-Stage Visual Workflow) -->
+        <section class="cs-card">
+          <h2 class="cs-card-title">
+            <span class="icon-cube">&#9670;</span> How It Works
+          </h2>
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+            <div style="display: flex; align-items: center; gap: 12px; background: rgba(27, 8, 13, 0.6); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
+              <div style="width: 24px; height: 24px; border-radius: 6px; background: #FF174F; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.72rem;">1</div>
+              <div>
+                <div style="font-size: 0.78rem; font-weight: 700; color: #fff;">Text Prompt</div>
+                <div style="font-size: 0.68rem; color: #C9AEB5;">User provides a natural language query (e.g. "person, car, dog").</div>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 12px; background: rgba(27, 8, 13, 0.6); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
+              <div style="width: 24px; height: 24px; border-radius: 6px; background: #FF174F; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.72rem;">2</div>
+              <div>
+                <div style="font-size: 0.78rem; font-weight: 700; color: #fff;">Grounding DINO</div>
+                <div style="font-size: 0.68rem; color: #C9AEB5;">Detects target objects and returns coordinates with confidence scores.</div>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 12px; background: rgba(27, 8, 13, 0.6); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
+              <div style="width: 24px; height: 24px; border-radius: 6px; background: #FF174F; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.72rem;">3</div>
+              <div>
+                <div style="font-size: 0.78rem; font-weight: 700; color: #fff;">SAM 2</div>
+                <div style="font-size: 0.68rem; color: #C9AEB5;">Generates pixel-accurate segmentation masks for all detected boxes.</div>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 12px; background: rgba(27, 8, 13, 0.6); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
+              <div style="width: 24px; height: 24px; border-radius: 6px; background: #059669; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.72rem;">4</div>
+              <div>
+                <div style="font-size: 0.78rem; font-weight: 700; color: #fff;">Video Tracking</div>
+                <div style="font-size: 0.68rem; color: #C9AEB5;">Propagates masks across frames while maintaining consistent persistent IDs.</div>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 12px; background: rgba(27, 8, 13, 0.6); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
+              <div style="width: 24px; height: 24px; border-radius: 6px; background: #0284c7; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.72rem;">5</div>
+              <div>
+                <div style="font-size: 0.78rem; font-weight: 700; color: #fff;">Output &amp; JSON Export</div>
+                <div style="font-size: 0.68rem; color: #C9AEB5;">Visualized video render and structured JSON metadata export.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 5. Results & Visuals Gallery -->
+      <section class="cs-card" style="margin-bottom: 20px;">
+        <h2 class="cs-card-title">
+          <span class="icon-cube">&#9670;</span> Results &amp; Visuals
+        </h2>
+        <div class="sam2-gallery-strip">
+          <!-- 1. Input Image -->
+          <div class="sam2-gallery-card">
+            <img src="assets/projects/grounded-sam2/hero_street.jpg" alt="Input Image" class="sam2-gallery-thumb">
+            <div class="sam2-gallery-caption">
+              <div class="sam2-gallery-title">1. Input Image</div>
+              <div class="sam2-gallery-sub">Raw camera scene input</div>
+            </div>
+          </div>
+
+          <!-- 2. Grounding DINO -->
+          <div class="sam2-gallery-card">
+            <img src="assets/projects/grounded-sam2/grounded_sam_2_intro.jpg" alt="Grounding DINO Bounding Boxes" class="sam2-gallery-thumb">
+            <div class="sam2-gallery-caption">
+              <div class="sam2-gallery-title">2. Grounding DINO</div>
+              <div class="sam2-gallery-sub">Text-guided bounding boxes</div>
+            </div>
+          </div>
+
+          <!-- 3. SAM 2 Segmentation -->
+          <div class="sam2-gallery-card">
+            <img src="assets/projects/grounded-sam2/hippopotamus_seg.jpg" alt="SAM 2 Segmentation Masks" class="sam2-gallery-thumb">
+            <div class="sam2-gallery-caption">
+              <div class="sam2-gallery-title">3. SAM 2</div>
+              <div class="sam2-gallery-sub">Pixel-level segmentation</div>
+            </div>
+          </div>
+
+          <!-- 4. Tracking Frame -->
+          <div class="sam2-gallery-card">
+            <img src="assets/projects/grounded-sam2/tracking_car_mask_1.jpg" alt="Tracking Video Frame" class="sam2-gallery-thumb">
+            <div class="sam2-gallery-caption">
+              <div class="sam2-gallery-title">4. Tracking (Video)</div>
+              <div class="sam2-gallery-sub">Frame-to-frame persistent IDs</div>
+            </div>
+          </div>
+
+          <!-- 5. JSON Output Preview -->
+          <div class="sam2-gallery-card">
+            <div class="sam2-json-card">
+{
+  "objects": [
+    {
+      "id": 1,
+      "label": "person",
+      "score": 0.94,
+      "bbox": [128, 412, 280, 890],
+      "tracking_id": 1
+    }
+  ]
+}
+            </div>
+            <div class="sam2-gallery-caption">
+              <div class="sam2-gallery-title">5. JSON Output</div>
+              <div class="sam2-gallery-sub">Exported metadata</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. 3-Column Section: Supported Models, Advanced Features, Use Cases -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1.15fr; gap: 16px; margin-bottom: 20px;">
+        <!-- Column 1: Supported Models -->
+        <section class="cs-card">
+          <h2 class="cs-card-title" style="font-size: 0.95rem;">
+            <span class="icon-cube">&#9670;</span> Supported Models
+          </h2>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
+            <div class="sam2-model-card">
+              <div class="sam2-model-name"><span style="color:#FF174F;">&bull;</span> Grounding DINO (Default)</div>
+              <div class="sam2-model-desc">Zero-shot object detection via text grounding.</div>
+            </div>
+            <div class="sam2-model-card">
+              <div class="sam2-model-name"><span style="color:#FF2B68;">&bull;</span> Grounding DINO 1.5 / 1.6 (Pro)</div>
+              <div class="sam2-model-desc">Enhanced performance on dense &amp; small targets.</div>
+            </div>
+            <div class="sam2-model-card">
+              <div class="sam2-model-name"><span style="color:#4ade80;">&bull;</span> DINO-X (Experimental)</div>
+              <div class="sam2-model-desc">Universal open-set vision model for dense scenes.</div>
+            </div>
+            <div class="sam2-model-card">
+              <div class="sam2-model-name"><span style="color:#facc15;">&bull;</span> Florence-2</div>
+              <div class="sam2-model-desc">Dense captioning + phrase grounding autolabel.</div>
+            </div>
+            <div class="sam2-model-card">
+              <div class="sam2-model-name"><span style="color:#FF2B68;">&bull;</span> SAM 2 &amp; SAM 2.1</div>
+              <div class="sam2-model-desc">Promptable image &amp; video segmentation backbone.</div>
+            </div>
+            <div class="sam2-model-card">
+              <div class="sam2-model-name"><span style="color:#f43f5e;">&bull;</span> SAM 2 Video Predictor</div>
+              <div class="sam2-model-desc">Real-time object memory &amp; tracking in video.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Column 2: Advanced Features -->
+        <section class="cs-card">
+          <h2 class="cs-card-title" style="font-size: 0.95rem;">
+            <span class="icon-cube">&#9670;</span> Advanced Features
+          </h2>
+          <ul class="cs-list" style="font-size: 0.8rem; margin-top: 10px;">
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>SAHI 4K Tiling:</strong> Slicing aided hyper inference for small dense objects.</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Custom Video Inputs:</strong> Upload custom MP4 video files with custom text prompts.</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Continuous ID Tracking:</strong> Persistent object identification across occlusion.</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Supervision Visualizer:</strong> Pixel mask overlays, labels, and bounding boxes.</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Adjustable Confidence:</strong> Dynamic Box Threshold and Text Threshold filtering.</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>JSON Dump Pipeline:</strong> Programmatic export of bounding boxes, masks &amp; IDs.</li>
+          </ul>
+        </section>
+
+        <!-- Column 3: Potential Use Cases + Preview -->
+        <section class="cs-card">
+          <h2 class="cs-card-title" style="font-size: 0.95rem;">
+            <span class="icon-cube">&#9670;</span> Potential Use Cases
+          </h2>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
+            <div style="position: relative; border-radius: 8px; overflow: hidden; height: 130px; border: 1px solid rgba(255,255,255,0.1);">
+              <img src="assets/projects/grounded-sam2/public_infrastructure.jpg" alt="Infrastructure AI Monitoring" style="width: 100%; height: 100%; object-fit: cover;">
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); padding: 4px 8px; font-size: 0.62rem; color: #FF2B68;">
+                Scene Infrastructure &bull; Multi-target Tracking
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.72rem; color: #C9AEB5;">
+              <div>&bull; Surveillance &amp; Security</div>
+              <div>&bull; Autonomous Vehicles</div>
+              <div>&bull; Robotics &amp; Automation</div>
+              <div>&bull; Smart City Analytics</div>
+              <div>&bull; Wildlife Monitoring</div>
+              <div>&bull; Video Content Moderation</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 7. System Architecture -->
+      <section class="cs-card" style="margin-bottom: 20px;">
+        <h2 class="cs-card-title">
+          <span class="icon-cube">&#9670;</span> System Architecture
+        </h2>
+        <div class="arch-flow-diagram">
+          <div class="arch-node-box">
+            <div class="arch-node-title">User Prompt (Natural Language Text)</div>
+            <div class="arch-node-sub">"person, car, dog" &bull; Free-form text queries</div>
+          </div>
+          <div class="arch-arrow">&darr;</div>
+          <div class="arch-node-box" style="border-color: rgba(250, 204, 21, 0.4);">
+            <div class="arch-node-title">Grounding Model (Grounding DINO / Florence-2 / DINO-X)</div>
+            <div class="arch-node-sub">Cross-Modality Feature Fusion &bull; Box Threshold &amp; Text Threshold Filtering</div>
+          </div>
+          <div class="arch-arrow">&darr;</div>
+          <div class="arch-node-box" style="border-color: rgba(255, 43, 104, 0.4);">
+            <div class="arch-node-title">Bounding Boxes &amp; Candidate Regions</div>
+            <div class="arch-node-sub">Coordinates (x1, y1, x2, y2) &bull; Confidence Scores &bull; Class Labels</div>
+          </div>
+          <div class="arch-arrow">&darr;</div>
+          <div class="arch-node-box" style="border-color: rgba(74, 222, 128, 0.4);">
+            <div class="arch-node-title">Segmentation Engine (SAM 2 / SAM 2.1)</div>
+            <div class="arch-node-sub">Promptable Mask Generator &bull; Zero-Shot Pixel-Level Mask Synthesis</div>
+          </div>
+          <div class="arch-arrow">&darr;</div>
+          <div class="arch-node-box" style="border-color: rgba(255, 23, 79, 0.4);">
+            <div class="arch-node-title">SAM 2 Video Predictor (Memory Bank &amp; Continuous Tracking)</div>
+            <div class="arch-node-sub">Temporal Feature Propagation &bull; Persistent ID Assignment &bull; Occlusion Recovery</div>
+          </div>
+          <div class="arch-arrow">&darr;</div>
+          <div class="arch-node-box" style="border-color: rgba(239, 68, 68, 0.4);">
+            <div class="arch-node-title">Visualization &amp; Structured JSON Export</div>
+            <div class="arch-node-sub">Supervision Rendering &bull; Annotated Video &bull; Exportable Detection Metadatas</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Tech Stack Matrix -->
+      <section class="cs-card" style="margin-bottom: 20px;">
+        <h2 class="cs-card-title">
+          <span class="icon-cube">&#9670;</span> Verified Tech Stack
+        </h2>
+        <div class="cs-two-col">
+          <div>
+            <h3 style="font-size: 0.85rem; font-weight: 700; color: #FF2B68; margin-bottom: 8px;">AI &amp; FOUNDATION MODELS</h3>
+            <ul class="cs-list" style="font-size: 0.82rem;">
+              <li><strong>Grounding DINO:</strong> Open-world phrase grounding &amp; object detection</li>
+              <li><strong>SAM 2 &amp; SAM 2.1:</strong> Segment Anything Model 2 for images and video</li>
+              <li><strong>Florence-2:</strong> Advanced vision-language model for dense region captioning</li>
+              <li><strong>DINO-X:</strong> Next-generation universal open-set visual perception</li>
+              <li><strong>SAM 2 Video Predictor:</strong> Memory-based multi-object video tracker</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="font-size: 0.85rem; font-weight: 700; color: #FF174F; margin-bottom: 8px;">FRAMEWORKS, LIBRARIES &amp; TOOLS</h3>
+            <ul class="cs-list" style="font-size: 0.82rem;">
+              <li><strong>Python 3.10 &amp; PyTorch:</strong> Deep learning execution with CUDA 12.1</li>
+              <li><strong>Gradio:</strong> Interactive web user interface for demo experimentation</li>
+              <li><strong>Supervision (Roboflow):</strong> Clean visualization of masks, boxes &amp; annotations</li>
+              <li><strong>SAHI:</strong> Slicing Aided Hyper Inference for ultra-high-res 4K images</li>
+              <li><strong>OpenCV &amp; NumPy:</strong> Computer vision processing and matrix manipulation</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. API / Workflow Overview Table -->
+      <section class="cs-card" style="margin-bottom: 20px;">
+        <h2 class="cs-card-title">
+          <span class="icon-cube">&#9670;</span> Technical Workflow Overview
+        </h2>
+        <div class="cs-api-table-wrapper" style="margin-top: 14px;">
+          <table class="cs-api-table">
+            <thead>
+              <tr>
+                <th>Step</th>
+                <th>Process</th>
+                <th>Technical Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="method-badge method-get">01</span></td>
+                <td><span class="endpoint-code">Prompt Input</span></td>
+                <td>User supplies input frame/video alongside arbitrary natural-language query strings.</td>
+              </tr>
+              <tr>
+                <td><span class="method-badge method-post">02</span></td>
+                <td><span class="endpoint-code">Object Detection</span></td>
+                <td>Grounding DINO parses prompt and extracts high-probability bounding boxes with logits.</td>
+              </tr>
+              <tr>
+                <td><span class="method-badge method-patch">03</span></td>
+                <td><span class="endpoint-code">Box Filtering</span></td>
+                <td>Applies Box Threshold and Text Threshold filters to remove low-confidence detections.</td>
+              </tr>
+              <tr>
+                <td><span class="method-badge method-post">04</span></td>
+                <td><span class="endpoint-code">Segmentation</span></td>
+                <td>Passes filtered bounding boxes into SAM 2 to synthesize binary pixel-accurate mask maps.</td>
+              </tr>
+              <tr>
+                <td><span class="method-badge method-get">05</span></td>
+                <td><span class="endpoint-code">Video Tracking</span></td>
+                <td>SAM 2 Video Predictor encodes memory attention to track segmented objects through video frames.</td>
+              </tr>
+              <tr>
+                <td><span class="method-badge method-post">06</span></td>
+                <td><span class="endpoint-code">Visualization</span></td>
+                <td>Renders bounding boxes, translucent mask colors, and persistent ID labels using Supervision.</td>
+              </tr>
+              <tr>
+                <td><span class="method-badge method-patch">07</span></td>
+                <td><span class="endpoint-code">JSON Export</span></td>
+                <td>Dumps coordinates, confidence scores, tracking IDs, and polygon coordinates to JSON.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 10. Project Structure -->
+      <section class="cs-card" style="margin-bottom: 20px;">
+        <h2 class="cs-card-title">
+          <span class="icon-cube">&#9670;</span> Project Structure
+        </h2>
+        <pre class="cs-tree-block">AI-agent/
+│
+├── <span class="cs-tree-file">grounded_sam2_tracking_demo.py</span>                          <span class="cs-tree-comment"># Main video tracking script</span>
+├── <span class="cs-tree-file">grounded_sam2_local_demo.py</span>                             <span class="cs-tree-comment"># Local image detection &amp; segmentation demo</span>
+├── <span class="cs-tree-file">grounded_sam2_tracking_demo_custom_video_input_gd1.5.py</span> <span class="cs-tree-comment"># Custom video tracking with GD 1.5</span>
+├── <span class="cs-tree-file">grounded_sam2_florence2_autolabel_pipeline.py</span>          <span class="cs-tree-comment"># Florence-2 automated caption + grounding</span>
+├── <span class="cs-tree-file">grounded_sam2_dinox_demo.py</span>                             <span class="cs-tree-comment"># DINO-X universal perception demo</span>
+├── <span class="cs-tree-file">ai_infrastructure_analyzer.py</span>                           <span class="cs-tree-comment"># Infrastructure defect analysis pipeline</span>
+├── <span class="cs-tree-file">grounding_dino/</span>                                         <span class="cs-tree-comment"># Grounding DINO model architecture</span>
+├── <span class="cs-tree-file">sam2/</span>                                                   <span class="cs-tree-comment"># Meta Segment Anything 2 core library</span>
+├── <span class="cs-tree-file">assets/</span> &amp; <span class="cs-tree-file">images/</span>                                       <span class="cs-tree-comment"># Benchmark images, test videos, pipelines</span>
+└── <span class="cs-tree-file">README.md</span>                                               <span class="cs-tree-comment"># Grounded SAM 2 research documentation</span></pre>
+      </section>
+
+      <!-- 11. What I Built, Challenges & Learnings -->
+      <div class="cs-two-col" style="margin-bottom: 20px;">
+        <section class="cs-card">
+          <h2 class="cs-card-title">
+            <span class="icon-cube">&#9670;</span> What I Built
+          </h2>
+          <ul class="cs-list" style="font-size: 0.82rem;">
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Integrated Grounding DINO with SAM 2 for zero-shot text-prompted segmentation.</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Implemented persistent multi-object tracking across video frames with continuous IDs.</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Configured SAHI tiled inference pipeline for ultra-high-resolution 4K imagery.</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Developed automated JSON export pipeline for downstream analytical tasks.</li>
+          </ul>
+        </section>
+
+        <section class="cs-card">
+          <h2 class="cs-card-title">
+            <span class="icon-cube">&#9670;</span> Technical Challenges &amp; Learnings
+          </h2>
+          <ul class="cs-list" style="font-size: 0.82rem;">
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>GPU memory optimization:</strong> Balancing SAM 2 video memory attention banks during long video inference.</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>ID persistence through occlusion:</strong> Preventing ID switches when detected pedestrians cross paths.</li>
+            <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Cross-model latency:</strong> Pipelining Grounding DINO detections into SAM 2 mask predictors efficiently.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- 12. Project Metadata & Useful Links -->
+      <div class="cs-two-col" style="margin-bottom: 20px;">
+        <div class="cs-card">
+          <h3 class="cs-card-title">
+            <span class="icon-cube">&#9670;</span> Project Info
+          </h3>
+          <div class="cs-info-row"><span class="cs-info-label">Project:</span><span class="cs-info-val">AI-Agent / Grounded SAM 2</span></div>
+          <div class="cs-info-row"><span class="cs-info-label">Number:</span><span class="cs-info-val">02</span></div>
+          <div class="cs-info-row"><span class="cs-info-label">Category:</span><span class="cs-info-val">Computer Vision / AI</span></div>
+          <div class="cs-info-row"><span class="cs-info-label">Language:</span><span class="cs-info-val">Python 3.10</span></div>
+          <div class="cs-info-row"><span class="cs-info-label">Framework:</span><span class="cs-info-val">PyTorch / Gradio</span></div>
+          <div class="cs-info-row"><span class="cs-info-label">License:</span><span class="cs-info-val">Apache 2.0</span></div>
+          <div class="cs-info-row"><span class="cs-info-label">Repository:</span><span class="cs-info-val">jabein6631/AI-agent</span></div>
+        </div>
+
+        <div class="cs-card">
+          <h3 class="cs-card-title">
+            <span class="icon-cube">&#9670;</span> Useful Links
+          </h3>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <a href="https://github.com/jabein6631/AI-agent" target="_blank" rel="noopener noreferrer" class="cs-link-item">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub Repository
+              </span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+            <a href="https://github.com/jabein6631/AI-agent#readme" target="_blank" rel="noopener noreferrer" class="cs-link-item">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                Documentation (README)
+              </span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+            <a href="https://arxiv.org/abs/2408.00714" target="_blank" rel="noopener noreferrer" class="cs-link-item">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                Meta SAM 2 Research Paper
+              </span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- Global Shared Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-monogram mini">SK</span>
+        <span class="logo-title mini">SK JABEN</span>
+      </div>
+      <p class="copyright-text">
+        &copy; 2024 SK Jabein. All rights reserved.
+      </p>
+      <p class="footer-tagline">
+        Building meaningful technology with curiosity, creativity, and code.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

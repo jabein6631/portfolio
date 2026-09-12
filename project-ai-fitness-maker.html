@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Fitness Maker Case Study - Real-time MediaPipe pose detection, personalized BMI nutrition/workout recommendations, FastAPI backend, and MongoDB persistence by SK Jabein.">
+  <title>AI Fitness Maker &bull; Case Study | SK Jabein Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=20260912_burgundy_v10">
+  <style>
+    /* Standalone Case Study Page Overrides */
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .standalone-container {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 0 24px 80px 24px;
+    }
+  </style>
+</head>
+<body class="theme-dark">
+
+  <!-- Ambient Glow Background -->
+  <div class="ambient-glow glow-top-right"></div>
+  <div class="ambient-glow glow-bottom-left"></div>
+
+  <!-- Sticky Full-Width Top Navbar -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <a href="index.html#home" class="brand-logo" aria-label="SK Jabein Home">
+        <span class="logo-mark">SK</span>
+        <span class="logo-text">SK JABEIN</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html#home" class="nav-btn">Home</a>
+        <a href="index.html#projects" class="nav-btn active">Projects</a>
+        <a href="index.html#skills" class="nav-btn">Skills</a>
+        <a href="index.html#about" class="nav-btn">About</a>
+        <a href="index.html#contact" class="nav-btn">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a href="index.html#contact" class="btn btn-connect">
+          <span>Let's Connect</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Standalone Content Container -->
+  <div class="standalone-container">
+    <article class="case-study-wrapper" style="margin-top: 16px;">
+      <!-- 1. Top Bar: Back Button & Breadcrumbs -->
+      <div class="case-study-topbar">
+        <a href="index.html#projects" class="cs-back-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Back to Projects</span>
+        </a>
+        <nav class="cs-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html#home" class="cs-bread-link">Home</a>
+          <span class="cs-bread-sep">&gt;</span>
+          <a href="index.html#projects" class="cs-bread-link">Projects</a>
+          <span class="cs-bread-sep">&gt;</span>
+          <span class="cs-bread-curr">AI Fitness Maker</span>
+        </nav>
+      </div>
+
+      <!-- 2. Project Hero Header -->
+      <div class="cs-hero-container">
+        <div class="cs-hero-header">
+          <div class="cs-hero-meta-row">
+            <span class="cs-category-badge">AI / ML &bull; FULL-STACK WEB APPLICATION</span>
+          </div>
+          <!-- NO 01 on top left! Clean and prominent -->
+          <h1 class="cs-project-title">AI Fitness Maker</h1>
+          <p class="cs-project-tagline">
+            An AI-powered fitness application that combines personalized workout and meal recommendations with real-time pose detection, workout tracking and performance insights.
+          </p>
+          <div class="cs-tech-badges-row">
+            <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Python</span>
+            <span class="cs-tech-pill"><span class="tech-icon-dot"></span>FastAPI</span>
+            <span class="cs-tech-pill"><span class="tech-icon-dot"></span>MediaPipe Pose</span>
+            <span class="cs-tech-pill"><span class="tech-icon-dot"></span>MongoDB</span>
+            <span class="cs-tech-pill"><span class="tech-icon-dot"></span>HTML5</span>
+            <span class="cs-tech-pill"><span class="tech-icon-dot"></span>CSS3</span>
+            <span class="cs-tech-pill"><span class="tech-icon-dot"></span>JavaScript</span>
+            <span class="cs-tech-pill"><span class="tech-icon-dot"></span>Google Sign-In</span>
+          </div>
+          <div class="cs-hero-actions-row">
+            <a href="https://ai-fitness-maker-frontend.onrender.com/ai_fitness_maker.html" target="_blank" rel="noopener noreferrer" class="btn cs-btn-demo">
+              <span>Live Demo</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+            <a href="https://github.com/jabein6631/ai-fitness-maker" target="_blank" rel="noopener noreferrer" class="btn cs-btn-gh">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GitHub Repository</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Hero Visual Frame (Actual UI Showcase) -->
+        <div class="cs-hero-visual-frame">
+          <div class="cs-visual-topbar">
+            <div class="cs-window-dots">
+              <span class="dot-red"></span>
+              <span class="dot-yellow"></span>
+              <span class="dot-green"></span>
+            </div>
+            <div class="cs-window-title">ai-fitness-maker &bull; Live Exercise Monitor &amp; Dashboard</div>
+            <div class="cs-live-indicator">
+              <span class="live-pulse-dot"></span>
+              <span>LIVE PROJECT</span>
+            </div>
+          </div>
+          <div class="cs-visual-canvas">
+            <img src="assets/projects/ai-fitness-maker/hero.jpg" alt="AI Fitness Maker Interface Showcase" class="cs-hero-img">
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Snapshot Strip (Interactive Carousel) -->
+      <section class="cs-carousel-section" aria-label="Project Screenshots">
+        <div class="cs-carousel-header">
+          <div class="cs-carousel-title-group">
+            <h3 class="cs-carousel-title">Project Snapshot Strip</h3>
+            <p class="cs-carousel-sub">Captured application states and workflows from the production build</p>
+          </div>
+          <div class="cs-carousel-controls">
+            <button class="cs-ctrl-btn" id="csPrevBtn" aria-label="Previous Slide">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="cs-ctrl-btn" id="csNextBtn" aria-label="Next Slide">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="cs-carousel-viewport">
+          <div class="cs-carousel-stage" id="csStage">
+            <!-- Slide 1 -->
+            <div class="cs-slide">
+              <img src="assets/projects/ai-fitness-maker/profile.jpg" alt="Landing & Profile Setup Screen" class="cs-slide-img">
+              <div class="cs-slide-caption">
+                <div class="cs-caption-text">
+                  <div class="cs-caption-title">01 &mdash; Landing &amp; User Profile Setup</div>
+                  <div class="cs-caption-desc">Biometric data input (Height, Weight, Age, Gender) with real-time BMI index computation and returning-user recognition.</div>
+                </div>
+                <span class="cs-slide-index">Slide 1 of 6</span>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="cs-slide">
+              <img src="assets/projects/ai-fitness-maker/goals.jpg" alt="BMI & Goal Selection Screen" class="cs-slide-img">
+              <div class="cs-slide-caption">
+                <div class="cs-caption-text">
+                  <div class="cs-caption-title">02 &mdash; BMI &amp; Goal Selection</div>
+                  <div class="cs-caption-desc">Custom goal selection (Weight Loss, Body Gain, Maintain &amp; Tone) providing personalized caloric and macronutrient targets.</div>
+                </div>
+                <span class="cs-slide-index">Slide 2 of 6</span>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="cs-slide">
+              <img src="assets/projects/ai-fitness-maker/plan.jpg" alt="Personalized Fitness Plan Screen" class="cs-slide-img">
+              <div class="cs-slide-caption">
+                <div class="cs-caption-text">
+                  <div class="cs-caption-title">03 &mdash; Personalized Fitness Plan</div>
+                  <div class="cs-caption-desc">Multi-tab interface showing customized Food Plan with macronutrients, Exercise Plan with sets and reps, and Safety Precautions.</div>
+                </div>
+                <span class="cs-slide-index">Slide 3 of 6</span>
+              </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="cs-slide">
+              <img src="assets/projects/ai-fitness-maker/tracker.jpg" alt="Workout Tracking Dashboard Screen" class="cs-slide-img">
+              <div class="cs-slide-caption">
+                <div class="cs-caption-text">
+                  <div class="cs-caption-title">04 &mdash; Workout Tracking Dashboard</div>
+                  <div class="cs-caption-desc">Real-time KPI metrics (Total Sessions, Reps, Time, Form Accuracy), manual logging, and weekly consistency bar charts.</div>
+                </div>
+                <span class="cs-slide-index">Slide 4 of 6</span>
+              </div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="cs-slide">
+              <img src="assets/projects/ai-fitness-maker/pose_detection.jpg" alt="Real-Time Pose Detection Screen" class="cs-slide-img">
+              <div class="cs-slide-caption">
+                <div class="cs-caption-text">
+                  <div class="cs-caption-title">05 &mdash; Real-Time Pose Detection Monitor</div>
+                  <div class="cs-caption-desc">Camera viewport with MediaPipe 33 skeletal landmarks, joint angle telemetry, repetition counter, and automated form corrections.</div>
+                </div>
+                <span class="cs-slide-index">Slide 5 of 6</span>
+              </div>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="cs-slide">
+              <img src="assets/projects/ai-fitness-maker/history.jpg" alt="Workout History & Stored Sessions Screen" class="cs-slide-img">
+              <div class="cs-slide-caption">
+                <div class="cs-caption-text">
+                  <div class="cs-caption-title">06 &mdash; Workout History &amp; Analytics</div>
+                  <div class="cs-caption-desc">Persistent MongoDB session history showing exercises performed, total reps, correct reps, duration, and timestamps.</div>
+                </div>
+                <span class="cs-slide-index">Slide 6 of 6</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thumbnail Navigator -->
+        <div class="cs-thumb-strip" id="csThumbStrip">
+          <div class="cs-thumb-item active" data-slide="0"><img src="assets/projects/ai-fitness-maker/profile.jpg" alt="Thumb 1"></div>
+          <div class="cs-thumb-item" data-slide="1"><img src="assets/projects/ai-fitness-maker/goals.jpg" alt="Thumb 2"></div>
+          <div class="cs-thumb-item" data-slide="2"><img src="assets/projects/ai-fitness-maker/plan.jpg" alt="Thumb 3"></div>
+          <div class="cs-thumb-item" data-slide="3"><img src="assets/projects/ai-fitness-maker/tracker.jpg" alt="Thumb 4"></div>
+          <div class="cs-thumb-item" data-slide="4"><img src="assets/projects/ai-fitness-maker/pose_detection.jpg" alt="Thumb 5"></div>
+          <div class="cs-thumb-item" data-slide="5"><img src="assets/projects/ai-fitness-maker/history.jpg" alt="Thumb 6"></div>
+        </div>
+      </section>
+
+      <!-- 5. Two-Column Case Study Layout -->
+      <div class="cs-layout-grid">
+        <!-- Left / Main Column -->
+        <main class="cs-main-content">
+          <!-- About The Project -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> About the Project
+            </h2>
+            <p class="cs-prose">
+              <strong>AI Fitness Maker</strong> is a full-stack fitness application designed to provide personalized workout and meal recommendations while using computer vision to analyze exercise movement in real time.
+            </p>
+            <p class="cs-prose">
+              Built from the ground up to address the disconnect between static workout plans and real-time exercise execution, the application unifies user biometric profiling, BMI computation, goal selection, AI pose estimation, workout session tracking, and persistent session history into a single cohesive engineering workflow.
+            </p>
+          </section>
+
+          <!-- The Problem & The Solution -->
+          <section class="cs-two-col">
+            <div class="cs-mini-card">
+              <h3 class="cs-mini-title" style="color: #f87171;">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                The Problem
+              </h3>
+              <p class="cs-prose" style="font-size: 0.85rem; margin-bottom: 12px;">
+                Traditional fitness applications often rely on manual workout tracking and generic recommendations:
+              </p>
+              <ul class="cs-list">
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>Users struggle with choosing suitable workouts for their body.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>Lack of guidance on adhering to structured nutritional plans.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>Manual rep tracking is tedious, distracting, and inaccurate.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>No real-time feedback to detect improper form or posture errors.</li>
+              </ul>
+            </div>
+
+            <div class="cs-mini-card">
+              <h3 class="cs-mini-title" style="color: #4ade80;">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                The Solution
+              </h3>
+              <p class="cs-prose" style="font-size: 0.85rem; margin-bottom: 12px;">
+                AI Fitness Maker combines personalized recommendations, workout tracking, and MediaPipe pose analysis into one workflow:
+              </p>
+              <ul class="cs-list">
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Calculates exact BMI and tailors custom meal and workout plans.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>MediaPipe Pose tracks 33 skeletal landmarks via WebCam.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Automated repetition counting based on joint flexion and extension.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Persistent MongoDB storage for returning users and session stats.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- How It Works (Connected Workflow Pipeline) -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> How It Works (System Architecture Pipeline)
+            </h2>
+            <div class="cs-workflow-pipeline">
+              <div class="pipeline-step-node">
+                <span class="node-step-num">01</span>
+                <div class="node-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                <div class="node-content">
+                  <div class="node-title">User Profile Intake</div>
+                  <div class="node-desc">User enters Name, Age, Gender, Height (cm), and Weight (kg) or connects with Google Sign-In.</div>
+                </div>
+              </div>
+
+              <div class="pipeline-step-node">
+                <span class="node-step-num">02</span>
+                <div class="node-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
+                <div class="node-content">
+                  <div class="node-title">BMI &amp; Goal Selection</div>
+                  <div class="node-desc">Automatic BMI calculation determines weight category (Underweight, Healthy, Overweight, Obese) matched with Weight Loss, Body Gain, or Maintain &amp; Tone goals.</div>
+                </div>
+              </div>
+
+              <div class="pipeline-step-node">
+                <span class="node-step-num">03</span>
+                <div class="node-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></div>
+                <div class="node-content">
+                  <div class="node-title">Personalized Plan Generation</div>
+                  <div class="node-desc">FastAPI recommendation engine generates custom daily caloric quotas, macronutrient distribution (protein, carbs, fats), and target exercise sets.</div>
+                </div>
+              </div>
+
+              <div class="pipeline-step-node">
+                <span class="node-step-num">04</span>
+                <div class="node-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
+                <div class="node-content">
+                  <div class="node-title">Workout Session Initiation</div>
+                  <div class="node-desc">User launches an exercise session (Push-ups, Squats, Curls, Lunges, Plank) creating an active session document via REST API.</div>
+                </div>
+              </div>
+
+              <div class="pipeline-step-node">
+                <span class="node-step-num">05</span>
+                <div class="node-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg></div>
+                <div class="node-content">
+                  <div class="node-title">Camera Input &amp; MediaPipe Pose</div>
+                  <div class="node-desc">Client WebCam stream processes frames through MediaPipe Pose, predicting 33 3D body landmark coordinates at 30+ FPS.</div>
+                </div>
+              </div>
+
+              <div class="pipeline-step-node">
+                <span class="node-step-num">06</span>
+                <div class="node-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></div>
+                <div class="node-content">
+                  <div class="node-title">Real-Time Exercise &amp; Angle Analysis</div>
+                  <div class="node-desc">Joint angles (elbows, knees, hips) are computed via vector trigonometry, evaluating repetition cycles and triggering live form feedback messages.</div>
+                </div>
+              </div>
+
+              <div class="pipeline-step-node">
+                <span class="node-step-num">07</span>
+                <div class="node-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
+                <div class="node-content">
+                  <div class="node-title">Session Telemetry &amp; Statistics</div>
+                  <div class="node-desc">Tracks total reps, correct reps, wrong pose incidents, and active duration in seconds, computing live form accuracy percentage.</div>
+                </div>
+              </div>
+
+              <div class="pipeline-step-node">
+                <span class="node-step-num">08</span>
+                <div class="node-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg></div>
+                <div class="node-content">
+                  <div class="node-title">MongoDB Atlas Persistence</div>
+                  <div class="node-desc">Session data is synchronized to MongoDB via PATCH requests, appending to user profile history and updating weekly charts.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- AI / Computer Vision: Real-Time Pose Analysis -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Real-Time Pose Analysis (Computer Vision Engine)
+            </h2>
+            <p class="cs-prose">
+              The application uses <strong>MediaPipe Pose</strong> to detect 33 bodily landmarks from real-time camera input and evaluates joint angle geometry to power repetition counting and form feedback.
+            </p>
+
+            <div class="cs-two-col" style="margin-top: 18px;">
+              <div class="cs-mini-card">
+                <h4 class="cs-mini-title" style="color: #FF2B68;">Biomechanics &amp; Joint Angles</h4>
+                <p class="cs-prose" style="font-size: 0.84rem;">
+                  The angle &theta; between three connected landmark coordinates (A, B, C where B is the vertex) is calculated using the 2D arctangent formula:
+                </p>
+                <code style="display: block; background: #070914; padding: 10px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 0.78rem; color: #4ade80;">
+                  &theta; = |atan2(Cy - By, Cx - Bx) - atan2(Ay - By, Ax - Bx)| * 180 / &pi;
+                </code>
+                <p class="cs-prose" style="font-size: 0.82rem; margin-top: 8px;">
+                  Key evaluated joints include <strong>Left Arm</strong>, <strong>Right Arm</strong>, <strong>Left Knee</strong>, and <strong>Right Knee</strong>.
+                </p>
+              </div>
+
+              <div class="cs-mini-card">
+                <h4 class="cs-mini-title" style="color: #FF2B68;">Exercise Feedback Logic</h4>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><strong>Squats:</strong> Knee angle &gt; 120&deg; &rarr; <em>"Squat deeper &mdash; break 90&deg;"</em>; &lt; 60&deg; &rarr; <em>"Too deep &mdash; rise slightly"</em>; 60&deg;-120&deg; &rarr; <em>"Great squat depth!"</em></li>
+                  <li><strong>Push-ups:</strong> Arm angle &lt; 50&deg; &rarr; <em>"Go lower &mdash; arms not deep enough"</em>; &gt; 178&deg; &rarr; <em>"Lock out arms fully at top"</em>.</li>
+                  <li><strong>Bicep Curls:</strong> Arm angle &gt; 150&deg; &rarr; <em>"Curl the weight up more"</em>; &lt; 30&deg; &rarr; <em>"Perfect curl &mdash; now lower slowly"</em>.</li>
+                  <li><strong>Lunges:</strong> Front knee angle &gt; 110&deg; &rarr; <em>"Lunge deeper &mdash; front knee at 90&deg;"</em>.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Personalized Fitness Plans -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Personalized Fitness Plans &amp; Recommendations
+            </h2>
+            <p class="cs-prose">
+              Based on user biometric parameters (Height, Weight, Age, Gender) and calculated BMI index, the recommendation engine maps goals into verified scientific protocols:
+            </p>
+
+            <div class="cs-two-col" style="margin-top: 16px;">
+              <div class="cs-mini-card">
+                <h4 class="cs-mini-title" style="color: #fbbf24;">🔥 Calorie Deficit Plan (Weight Loss)</h4>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><strong>Daily Target:</strong> 1,600 kcal</li>
+                  <li><strong>Protein:</strong> 130g | <strong>Cardio:</strong> 45 min</li>
+                  <li><strong>Guidance:</strong> Focus on HIIT cardio and reduce refined sugars.</li>
+                </ul>
+              </div>
+
+              <div class="cs-mini-card">
+                <h4 class="cs-mini-title" style="color: #4ade80;">💪 Muscle Building Plan (Body Gain)</h4>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><strong>Daily Target:</strong> 2,800 kcal</li>
+                  <li><strong>Protein:</strong> 180g | <strong>Cardio:</strong> 20 min</li>
+                  <li><strong>Guidance:</strong> Progressive overload + 8 hours sleep for maximum muscle hypertrophy.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Backend Architecture & REST API -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Backend Architecture &amp; REST API Endpoints
+            </h2>
+            <p class="cs-prose">
+              The backend is built with <strong>FastAPI</strong> in Python, exposing a lightweight and robust REST API interface integrated with <strong>MongoDB Atlas</strong>:
+            </p>
+
+            <div class="cs-api-table-wrapper" style="margin-top: 16px;">
+              <table class="cs-api-table">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>Endpoint</th>
+                    <th>Purpose &amp; Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="method-badge method-get">GET</span></td>
+                    <td><span class="endpoint-code">/</span></td>
+                    <td>Health check endpoint returning API status, database name, and collections.</td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/profiles</span></td>
+                    <td>Upsert user profile (name, age, gender, height, weight, goal, BMI). Auto-updates returning users.</td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-get">GET</span></td>
+                    <td><span class="endpoint-code">/profiles/{name}</span></td>
+                    <td>Fetch stored profile by name (case-insensitive) for automatic login restoration.</td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/recommendations</span></td>
+                    <td>Compute BMI category and return tailored nutrition &amp; workout plan.</td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/sessions</span></td>
+                    <td>Initialize new workout session document with exercise name and goal.</td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-patch">PATCH</span></td>
+                    <td><span class="endpoint-code">/sessions/{id}</span></td>
+                    <td>Incrementally sync completed reps, correct reps, posture errors, and session duration.</td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-get">GET</span></td>
+                    <td><span class="endpoint-code">/sessions/user/{name}</span></td>
+                    <td>Retrieve full chronological workout history and performance stats for a user.</td>
+                  </tr>
+                  <tr>
+                    <td><span class="method-badge method-post">POST</span></td>
+                    <td><span class="endpoint-code">/pose/analyze</span></td>
+                    <td>Backend validation of joint angle landmarks with feedback generation.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Data & Persistence (MongoDB) -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Data &amp; Persistence (MongoDB Atlas)
+            </h2>
+            <p class="cs-prose">
+              Application state is persistently maintained across visits using a cloud-hosted <strong>MongoDB Atlas</strong> database named <code>fitness</code> containing two core collections:
+            </p>
+            <div class="cs-two-col" style="margin-top: 14px;">
+              <div class="cs-mini-card">
+                <h4 class="cs-mini-title" style="color: #FF174F;">📁 profiles Collection</h4>
+                <p class="cs-prose" style="font-size: 0.84rem;">
+                  Stores user biometric profile data keyed with <code>name_lower</code> for case-insensitive lookup, BMI, goal, and timestamps:
+                </p>
+                <code style="display: block; background: #070914; padding: 10px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 0.76rem; color: #C9AEB5;">
+                  { name, age, gender, height_cm, weight_kg, goal, bmi, bmi_category, created_at, updated_at }
+                </code>
+              </div>
+
+              <div class="cs-mini-card">
+                <h4 class="cs-mini-title" style="color: #FF2B68;">📁 sessions Collection</h4>
+                <p class="cs-prose" style="font-size: 0.84rem;">
+                  Tracks each completed or in-progress workout session with granular metrics:
+                </p>
+                <code style="display: block; background: #070914; padding: 10px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 0.76rem; color: #C9AEB5;">
+                  { user_name, exercise_name, goal, reps_completed, correct_reps, wrong_pose_events, duration_seconds, started_at }
+                </code>
+              </div>
+            </div>
+          </section>
+
+          <!-- Project Structure -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> Project Structure
+            </h2>
+            <p class="cs-prose">
+              The repository adheres to a clean, modular structure verified directly from source control:
+            </p>
+            <pre class="cs-tree-block">ai-fitness-maker/
+│
+├── <span class="cs-tree-file">ai_fitness_maker.html</span>  <span class="cs-tree-comment"># Main single-file frontend client (HTML, CSS, JS, MediaPipe)</span>
+├── <span class="cs-tree-file">index.html</span>             <span class="cs-tree-comment"># Lightweight root redirect entrypoint</span>
+├── <span class="cs-tree-file">main.py</span>                <span class="cs-tree-comment"># FastAPI backend, Pydantic schemas, routes &amp; MongoDB driver</span>
+├── <span class="cs-tree-file">requirements.txt</span>       <span class="cs-tree-comment"># Python dependencies (fastapi, uvicorn, pymongo, pydantic, python-dotenv)</span>
+├── <span class="cs-tree-file">render.yaml</span>            <span class="cs-tree-comment"># Render cloud infrastructure blueprint configuration</span>
+├── <span class="cs-tree-file">.env.example</span>           <span class="cs-tree-comment"># Environment variable template (MONGO_URI, PORT)</span>
+└── <span class="cs-tree-file">README.md</span>              <span class="cs-tree-comment"># Comprehensive project documentation &amp; deploy guide</span></pre>
+          </section>
+
+          <!-- What I Built -->
+          <section class="cs-card">
+            <h2 class="cs-card-title">
+              <span class="icon-cube">&#9670;</span> What I Built (Engineering Contributions)
+            </h2>
+            <div class="cs-two-col">
+              <div>
+                <h4 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 8px;">Frontend &amp; UI/UX:</h4>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Single-page architecture with dynamic screen transitions.</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Real-time BMI calculation preview with category gauge.</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Workout dashboard with KPIs and weekly activity charts.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 8px;">Computer Vision &amp; Backend:</h4>
+                <ul class="cs-list" style="font-size: 0.82rem;">
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>MediaPipe Pose integration with real-time landmark canvas.</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>FastAPI REST API with 8 endpoints and Pydantic validation.</li>
+                  <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>MongoDB Atlas integration with case-insensitive upserts.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Challenges & Learnings -->
+          <section class="cs-two-col">
+            <div class="cs-mini-card">
+              <h3 class="cs-mini-title" style="color: #fbbf24;">Technical Challenges</h3>
+              <ul class="cs-list" style="font-size: 0.84rem;">
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Low-latency frame rates:</strong> Running 33 3D skeletal landmark extraction smoothly inside the client browser without freezing the UI thread.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Rep counting noise:</strong> Filtering sensor jitter and incomplete body extensions to avoid false positive repetitions.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>State synchronization:</strong> Managing real-time telemetry syncing with the FastAPI backend without flooding the network.</li>
+              </ul>
+            </div>
+
+            <div class="cs-mini-card">
+              <h3 class="cs-mini-title" style="color: #FF2B68;">Key Learnings</h3>
+              <ul class="cs-list" style="font-size: 0.84rem;">
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Designing clean, idiomatic REST API schemas with FastAPI and Pydantic.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Applying vector mathematics to computer vision landmarks for motion validation.</li>
+                <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Deploying decoupled frontend and backend services on Render using automated blueprint configurations.</li>
+              </ul>
+            </div>
+          </section>
+        </main>
+
+        <!-- Right Column / Sidebar Info Cards -->
+        <aside class="cs-sidebar">
+          <!-- Project Highlights Card -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Project Highlights
+            </h3>
+            <ul class="cs-list" style="font-size: 0.82rem;">
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Real-time pose detection using MediaPipe</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Accurate repetition counting &amp; form feedback</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Personalized meal &amp; workout plans based on BMI</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Workout history &amp; weekly consistency charts</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Returning-user recognition &amp; persistent profiles</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Optional Google Sign-In authentication</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>RESTful API built with Python &amp; FastAPI</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Cloud deployment via Render &amp; MongoDB Atlas</li>
+            </ul>
+          </div>
+
+          <!-- Project Metadata Card -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Project Info
+            </h3>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Project:</span>
+              <span class="cs-info-val">AI Fitness Maker</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Category:</span>
+              <span class="cs-info-val">AI / Machine Learning</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Type:</span>
+              <span class="cs-info-val">Full-Stack Web App</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Frontend:</span>
+              <span class="cs-info-val">HTML / CSS / Vanilla JS</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Backend:</span>
+              <span class="cs-info-val">FastAPI / Python</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Database:</span>
+              <span class="cs-info-val">MongoDB Atlas</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Vision:</span>
+              <span class="cs-info-val">MediaPipe Pose</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Auth:</span>
+              <span class="cs-info-val">Google Identity Services</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Deployment:</span>
+              <span class="cs-info-val">Render</span>
+            </div>
+            <div class="cs-info-row">
+              <span class="cs-info-label">Repository:</span>
+              <span class="cs-info-val">jabein6631/ai-fitness-maker</span>
+            </div>
+          </div>
+
+          <!-- Useful Links Card -->
+          <div class="cs-card">
+            <h3 class="cs-card-title" style="font-size: 1.1rem; margin-bottom: 14px;">
+              <span class="icon-cube">&#9670;</span> Useful Links
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <a href="https://github.com/jabein6631/ai-fitness-maker" target="_blank" rel="noopener noreferrer" class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  GitHub Repository
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+
+              <a href="https://ai-fitness-maker-frontend.onrender.com/ai_fitness_maker.html" target="_blank" rel="noopener noreferrer" class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                  Live Production Demo
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+
+              <a href="https://github.com/jabein6631/ai-fitness-maker/issues" target="_blank" rel="noopener noreferrer" class="cs-link-item">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                  Report Bug / Issues
+                </span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </div>
+
+  <!-- Global Shared Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-monogram mini">SK</span>
+        <span class="logo-title mini">SK JABEN</span>
+      </div>
+      <p class="copyright-text">
+        &copy; 2024 SK Jabein. All rights reserved.
+      </p>
+      <p class="footer-tagline">
+        Building meaningful technology with curiosity, creativity, and code.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Standalone Carousel Script -->
+  <script>
+    const csStage = document.getElementById('csStage');
+    const csPrevBtn = document.getElementById('csPrevBtn');
+    const csNextBtn = document.getElementById('csNextBtn');
+    const csThumbs = document.querySelectorAll('#csThumbStrip .cs-thumb-item');
+    let currentCsSlide = 0;
+    const totalCsSlides = 6;
+
+    function updateCsCarousel(slideIdx) {
+      currentCsSlide = (slideIdx + totalCsSlides) % totalCsSlides;
+      if (csStage) {
+        csStage.style.transform = `translateX(-${currentCsSlide * 100}%)`;
+      }
+      csThumbs.forEach((thumb, i) => {
+        if (i === currentCsSlide) {
+          thumb.classList.add('active');
+          thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          thumb.classList.remove('active');
+        }
+      });
+    }
+
+    if (csPrevBtn) csPrevBtn.addEventListener('click', () => updateCsCarousel(currentCsSlide - 1));
+    if (csNextBtn) csNextBtn.addEventListener('click', () => updateCsCarousel(currentCsSlide + 1));
+    csThumbs.forEach((thumb, idx) => thumb.addEventListener('click', () => updateCsCarousel(idx)));
+  </script>
+</body>
+</html>
